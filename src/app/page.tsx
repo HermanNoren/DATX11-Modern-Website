@@ -1,9 +1,9 @@
-import Hero from "./_components/Hero";
+import ScrollCubeSection from "./_components/ScrollCubeSection";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <ScrollCubeSection />
     </>
   );
 }

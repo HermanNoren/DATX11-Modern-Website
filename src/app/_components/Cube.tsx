@@ -1,9 +1,7 @@
 "use client";
 
-import { MeshTransmissionMaterial } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
-import { MeshStandardMaterial } from "three";
 
 export default function Cube() {
   const mesh = useRef(null);
@@ -13,9 +11,10 @@ export default function Cube() {
     mesh.current.rotation.y += 0.2 * delta;
     mesh.current.rotation.z += 0.2 * delta;
   });
+
   return (
-    <group scale={viewport.width / 7}>
-      <mesh rotateY={45} ref={mesh}>
+    <group scale={viewport.width / 5}>
+      <mesh ref={mesh}>
         <boxGeometry />
         <meshPhysicalMaterial
           metalness={1}
