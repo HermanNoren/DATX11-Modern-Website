@@ -1,0 +1,165 @@
+/* About Page Container */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1920px; 
+    margin: 0 auto; 
+    padding: 4em 2em;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+}
+
+/* Title */
+.about-title {
+    font-size: 120px; 
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Bold Styling */
+.bold {
+    font-weight: 600;
+}
+
+/* Video Section */
+.video-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%; 
+    max-width: 895px; 
+    height: 465px; 
+    margin-bottom: 6rem; /* Adds spacing before reveal */
+}
+
+/* Video Placeholder */
+.video-placeholder {
+    width: 895px; 
+    height: 465px; 
+    background-color: #d3d3d3; /* Light gray placeholder */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Side Texts */
+.side-text {
+    position: absolute;
+    width: 250px; 
+    font-size: 18px;
+    text-align: center;
+    color: var(--color-foreground);
+    line-height: 1.4;
+}
+
+/* Left Text: Right-aligned at the top of the box */
+.left-text {
+    left: -260px; 
+    top: 0px;
+    text-align: right;
+}
+
+/* Right Text: Left-aligned at the bottom of the box */
+.right-text {
+    right: -260px; 
+    bottom: 0px;
+    text-align: left;
+}
+
+/* Scroll Reveal Text */
+.scroll-reveal-text {
+    max-width: 60%;
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(50px);
+    margin-top: 4rem;
+}
+
+/* Word-by-Word Animation Styling */
+.word-animation {
+    display: inline-block; 
+    opacity: 1; 
+}
+
+/* Responsive Fix for Small Screens */
+@media screen and (max-width: 1400px) {
+    .video-placeholder {
+        width: 80%;
+        height: auto;
+    }
+
+    .left-text {
+        left: -220px; 
+    }
+
+    .right-text {
+        right: -220px; 
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .about-title {
+        font-size: 80px;
+    }
+
+    .video-section {
+        flex-direction: column;
+        height: auto;
+        max-width: 90%;
+    }
+
+    .video-placeholder {
+        width: 90%;
+        height: auto;
+        max-width: 600px;
+    }
+
+    .scroll-reveal-text {
+        font-size: 24px;
+        max-width: 80%;
+    }
+
+    .left-text, .right-text {
+        font-size: 14px;
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        text-align: center;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    /* Video Container */
+    .video-container {
+        width: 895px;
+        height: 465px;
+        border-radius: 24px; /* Ensures the container has rounded corners */
+        overflow: hidden; /* Forces the video inside to inherit the rounded corners */
+    }
+
+    /* Video Player */
+    .video-player {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 24px; /* Ensures the video also has rounded corners */
+        display: block;
+    }
+
+    
+
+
+}
