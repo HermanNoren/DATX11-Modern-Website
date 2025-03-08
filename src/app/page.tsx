@@ -1,9 +1,20 @@
-import ScrollCubeSection from "./_components/ScrollCubeSection";
+import CubeInfo from "./_components/ScrollCubeSection/CubeInfo";
+import CubeSizes from "./_components/ScrollCubeSection/CubeSizes";
+import Hero from "./_components/ScrollCubeSection/Hero";
+import ScrollCubeSection from "./_components/ScrollCubeSection/ScrollCubeSection";
+import SideScrollVideo from "./_components/ScrollCubeSection/SideScrollVideo";
+import Slogan from "./_components/ScrollCubeSection/Slogan";
 
 export default function Home() {
   return (
     <>
-      <ScrollCubeSection />
+      <ScrollCubeSection>
+        <Hero />
+        <Slogan />
+        <CubeInfo />
+        <SideScrollVideo />
+      </ScrollCubeSection>
+      <div className="w-screen h-[200lvh] bg-black"></div>
     </>
   );
 }
