@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
 import "./about.css";
 
 // Register GSAP ScrollTrigger Plugin
@@ -46,7 +47,7 @@ export default function AboutPage() {
     <section className="about-container">
       {/* Large Title */}
       <h1 className="about-title">
-        About <span className="bold">deCube.</span>
+        About deCube.
       </h1>
 
       {/* Video & Side Text Section */}
@@ -58,7 +59,7 @@ export default function AboutPage() {
           EMBODY SOPHISTICATION AND EXCLUSIVITY.
         </p>
 
-        {/* 🎥 Video */}
+        {/* Video */}
         <div className="video-container">
           <video className="video-player" autoPlay loop muted playsInline>
             <source
@@ -86,16 +87,34 @@ export default function AboutPage() {
         </p>
       </div>
 
-      {/* Three Rectangular Boxes Scene */}
+      {/* Three Image Scene (Replacing Boxes) */}
       <section className="box-section">
         <div className="box-wrapper">
           {/* Left Rotated Text */}
           <div className="side-text-box left-rotated">CUBE/KUB/CUBO/KUUTIO/立方体</div>
 
           <div className="box-container">
-            <div className="box">Box 1</div>
-            <div className="box">Box 2</div>
-            <div className="box">Box 3</div>
+          <Image 
+            src="/top-of-building.png" 
+            alt="Top of building" 
+            width={300} 
+            height={150} 
+            className="box-image"
+          />
+          <Image 
+            src="/middle-of-building.png" 
+            alt="Middle of building" 
+            width={300} 
+            height={150} 
+            className="box-image"
+          />
+          <Image 
+            src="/bottom-of-building.png" 
+            alt="Bottom of building" 
+            width={300} 
+            height={150} 
+            className="box-image"
+          />
           </div>
 
           {/* Right Rotated Text */}
@@ -103,7 +122,5 @@ export default function AboutPage() {
         </div>
       </section>
     </section>
-
-    
   );
 }

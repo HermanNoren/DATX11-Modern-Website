@@ -94,18 +94,18 @@
     transform: translateY(20px);
 }
 
-/*  Box Scene  */
+/* New Image Scene (Replacing Boxes) */
 .box-section {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    padding: 20rem 0;  /* Push this section further down */
-    background-color: var(--color-background-alt); /* Slightly different background to separate it */
+    padding: 12rem 0; /* Adjusted padding */
+    background-color: var(--color-background-alt);
 }
 
-/* Box Wrapper - Ensures side text aligns properly */
+/* Box Wrapper */
 .box-wrapper {
     display: flex;
     align-items: center;
@@ -114,7 +114,7 @@
     position: relative;
 }
 
-/* Box Container */
+/* Box Container (Now Image Container) */
 .box-container {
     display: flex;
     flex-direction: column;
@@ -122,20 +122,15 @@
     justify-content: center;
 }
 
-/* Individual Boxes */
-.box {
+/* Images replacing boxes */
+.box-image {
     width: 300px;
-    height: 150px;
-    background-color: var(--color-foreground);
-    color: var(--color-background);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
+    height: auto;
+    object-fit: cover;
     border-radius: 12px;
-    margin: 10px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 15px 0;
+    box-shadow: none; 
+    background-color: transparent; 
 }
 
 /* Side Rotated Text */
@@ -162,9 +157,7 @@
     transform-origin: right center;
 }
 
-
-
-/* Responsive Fix */
+/* Responsive Adjustments */
 @media screen and (max-width: 1200px) {
     .about-title {
         font-size: 100px;
@@ -193,11 +186,9 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .box {
+    .box-image {
         width: 90%;
         max-width: 250px;
-        height: 120px;
-        font-size: 20px;
     }
 
     .side-text-box {
@@ -205,7 +196,7 @@
     }
 
     .box-section {
-        padding: 8rem 0;  /* Adjust padding slightly for smaller screens */
+        padding: 8rem 0; /* Adjust padding slightly for smaller screens */
     }
 }
 
@@ -237,10 +228,8 @@
         font-size: 60px;
     }
 
-    .box {
+    .box-image {
         max-width: 200px;
-        height: 100px;
-        font-size: 18px;
     }
 
     .side-text-box {
