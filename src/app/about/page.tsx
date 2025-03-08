@@ -1,26 +1,47 @@
-"use client"; 
+"use client";
 
-import React from "react";
-import { motion } from "framer-motion"; 
-import "./about.css"; 
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import "./about.css";
 
-// Function to create staggered word animations
-const revealText = (text: string): React.ReactNode[] => {
-  return text.split(" ").map((word, index) => (
-    <motion.span
-      key={index}
-      initial={{ opacity: 0 }} 
-      whileInView={{ opacity: 1 }} 
-      viewport={{ once: false }}  
-      transition={{ duration: 0.4, delay: index * 0.08 }}  
-      className="word-animation" 
-    >
-      {word}&nbsp;
-    </motion.span>
-  ));
-};
+// Register GSAP ScrollTrigger Plugin
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutPage() {
+  const textRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      const words = textRef.current.querySelectorAll(".word-animation");
+
+      gsap.fromTo(
+        words,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
+  }, []);
+
+  // Function to wrap each word in a span for animation
+  const formatText = (text: string) => {
+    return text.split(" ").map((word, index) => (
+      <span key={index} className="word-animation">
+        {word}&nbsp;
+      </span>
+    ));
+  };
+
   return (
     <section className="about-container">
       {/* Large Title */}
@@ -37,7 +58,7 @@ export default function AboutPage() {
           EMBODY SOPHISTICATION AND EXCLUSIVITY.
         </p>
 
-        {/* 🎥 Replace Gray Box with Video */}
+        {/* 🎥 Video */}
         <div className="video-container">
           <video className="video-player" autoPlay loop muted playsInline>
             <source
@@ -56,20 +77,33 @@ export default function AboutPage() {
         </p>
       </div>
 
-      {/* Scroll-Revealing Text (Word-by-Word Fade-In) */}
-      <motion.div
-        className="scroll-reveal-text"
-        initial={{ opacity: 0, y: 30 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: false }} 
-        transition={{ duration: 1, ease: "easeOut" }} 
-      >
+      {/* Scroll-Revealing Text (GSAP Staggering Effect) */}
+      <div className="scroll-reveal-text" ref={textRef}>
         <p className="reveal-paragraph">
-          {revealText(
+          {formatText(
             "deCube is a design-driven company redefining interior aesthetics through sleek, geometric precision. Founded by a collective of cube enthusiasts, we merge artistry and engineering to create objects of pure form and function."
           )}
         </p>
-      </motion.div>
+      </div>
+
+      {/* Three Rectangular Boxes Scene */}
+      <section className="box-section">
+        <div className="box-wrapper">
+          {/* Left Rotated Text */}
+          <div className="side-text-box left-rotated">CUBE/KUB/CUBO/KUUTIO/立方体</div>
+
+          <div className="box-container">
+            <div className="box">Box 1</div>
+            <div className="box">Box 2</div>
+            <div className="box">Box 3</div>
+          </div>
+
+          {/* Right Rotated Text */}
+          <div className="side-text-box right-rotated">CUBE/KUB/CUBO/KUUTIO/立方体</div>
+        </div>
+      </section>
     </section>
+
+    
   );
 }

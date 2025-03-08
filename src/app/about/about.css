@@ -5,19 +5,19 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1920px; 
-    margin: 0 auto; 
-    padding: 4em 2em;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 6em 2em;
     background-color: var(--color-background);
     color: var(--color-foreground);
 }
 
 /* Title */
 .about-title {
-    font-size: 120px; 
+    font-size: 120px;
     font-weight: 300;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 /* Bold Styling */
@@ -31,47 +31,50 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 100%; 
-    max-width: 895px; 
-    height: 465px; 
-    margin-bottom: 6rem; /* Adds spacing before reveal */
+    width: 100%;
+    max-width: 895px;
+    height: 465px;
+    margin-bottom: 8rem;
 }
 
-/* Video Placeholder */
-.video-placeholder {
-    width: 895px; 
-    height: 465px; 
-    background-color: #d3d3d3; /* Light gray placeholder */
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 500;
-    color: #555;
+/* Video Container */
+.video-container {
+    width: 895px;
+    height: 465px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+/* Video Player */
+.video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
 }
 
 /* Side Texts */
 .side-text {
     position: absolute;
-    width: 250px; 
+    width: 250px;
     font-size: 18px;
     text-align: center;
     color: var(--color-foreground);
     line-height: 1.4;
 }
 
-/* Left Text: Right-aligned at the top of the box */
+/* Left Text (Aligned Right) */
 .left-text {
-    left: -260px; 
-    top: 0px;
+    left: -280px;
+    top: 20px;
     text-align: right;
 }
 
-/* Right Text: Left-aligned at the bottom of the box */
+/* Right Text (Aligned Left) */
 .right-text {
-    right: -260px; 
-    bottom: 0px;
+    right: -280px;
+    bottom: 20px;
     text-align: left;
 }
 
@@ -81,85 +84,166 @@
     text-align: center;
     font-size: 32px;
     line-height: 1.4;
-    opacity: 0;
-    transform: translateY(50px);
-    margin-top: 4rem;
+    margin-top: 5rem;
 }
 
-/* Word-by-Word Animation Styling */
+/* Word Animation */
 .word-animation {
-    display: inline-block; 
-    opacity: 1; 
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-/* Responsive Fix for Small Screens */
-@media screen and (max-width: 1400px) {
-    .video-placeholder {
-        width: 80%;
-        height: auto;
-    }
-
-    .left-text {
-        left: -220px; 
-    }
-
-    .right-text {
-        right: -220px; 
-    }
+/*  Box Scene  */
+.box-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20rem 0;  /* Push this section further down */
+    background-color: var(--color-background-alt); /* Slightly different background to separate it */
 }
 
-@media screen and (max-width: 1024px) {
+/* Box Wrapper - Ensures side text aligns properly */
+.box-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Box Container */
+.box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Individual Boxes */
+.box {
+    width: 300px;
+    height: 150px;
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    margin: 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Side Rotated Text */
+.side-text-box {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-foreground);
+    position: absolute;
+    white-space: nowrap;
+}
+
+/* Left Rotated Text */
+.left-rotated {
+    left: 0;
+    transform: rotate(-90deg);
+    transform-origin: left center;
+}
+
+/* Right Rotated Text */
+.right-rotated {
+    right: 0;
+    transform: rotate(90deg);
+    transform-origin: right center;
+}
+
+
+
+/* Responsive Fix */
+@media screen and (max-width: 1200px) {
     .about-title {
-        font-size: 80px;
+        font-size: 100px;
     }
 
     .video-section {
         flex-direction: column;
-        height: auto;
         max-width: 90%;
+        height: auto;
     }
 
-    .video-placeholder {
+    .video-container {
         width: 90%;
-        height: auto;
-        max-width: 600px;
+        max-width: 700px;
     }
 
     .scroll-reveal-text {
-        font-size: 24px;
+        font-size: 28px;
         max-width: 80%;
     }
 
     .left-text, .right-text {
+        width: 200px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .box {
+        width: 90%;
+        max-width: 250px;
+        height: 120px;
+        font-size: 20px;
+    }
+
+    .side-text-box {
         font-size: 14px;
-        position: relative;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        text-align: center;
-        width: 100%;
-        margin-top: 1rem;
     }
 
-    /* Video Container */
-    .video-container {
-        width: 895px;
-        height: 465px;
-        border-radius: 24px; /* Ensures the container has rounded corners */
-        overflow: hidden; /* Forces the video inside to inherit the rounded corners */
+    .box-section {
+        padding: 8rem 0;  /* Adjust padding slightly for smaller screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-title {
+        font-size: 80px;
     }
 
-    /* Video Player */
-    .video-player {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 24px; /* Ensures the video also has rounded corners */
-        display: block;
+    .scroll-reveal-text {
+        font-size: 24px;
+        max-width: 85%;
     }
 
-    
+    .side-text-box {
+        font-size: 12px;
+    }
 
+    .left-rotated {
+        left: -20px;
+    }
 
+    .right-rotated {
+        right: -20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-title {
+        font-size: 60px;
+    }
+
+    .box {
+        max-width: 200px;
+        height: 100px;
+        font-size: 18px;
+    }
+
+    .side-text-box {
+        font-size: 10px;
+    }
 }
