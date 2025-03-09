@@ -30,38 +30,6 @@
     transform: translateY(20px);
 }
 
-/* Address Section */
-.address-section {
-    background-color: #95614E;
-    color: var(--color-foreground);
-    text-align: center;
-    padding: var(--section-padding) var(--container-padding);
-    border-radius: 10px;
-    max-width: var(--size-container);
-    margin: 40px auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Address GIF */
-.address-gif {
-    display: block;
-    margin: 0 auto 20px;
-    width: 100px; /* Adjust size as needed */
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Address Text */
-.address-text {
-    font-size: var(--text-base);
-    line-height: var(--text-base--line-height);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 /* Responsive Adjustments */
 @media screen and (max-width: 1200px) {
     .video-section {
