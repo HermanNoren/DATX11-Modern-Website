@@ -38,7 +38,7 @@ export default function AstrolightHero() {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
         <h1
           ref={textRef}
-          className="text-5xl md:text-7xl font-light tracking-wide"
+          className="text-5xl md:text-9xl font-light tracking-wide"
         >
           deCube
         </h1>
