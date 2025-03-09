@@ -5,24 +5,18 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 1920px;
+    max-width: var(--size-container-max);
     margin: 0 auto;
-    padding: 6em 2em;
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    padding: var(--section-padding) var(--container-padding);
+    overflow: visible; /* Ensure animations work */
 }
 
 /* Title */
 .about-title {
-    font-size: 120px;
+    font-size: clamp(2rem, 5vw, 6rem);
     font-weight: 300;
     text-align: center;
     margin-bottom: 3rem;
-}
-
-/* Bold Styling */
-.bold {
-    font-weight: 600;
 }
 
 /* Video Section */
@@ -35,6 +29,7 @@
     max-width: 895px;
     height: 465px;
     margin-bottom: 8rem;
+    overflow: visible;
 }
 
 /* Video Container */
@@ -57,8 +52,8 @@
 /* Side Texts */
 .side-text {
     position: absolute;
-    width: 250px;
-    font-size: 18px;
+    width: clamp(180px, 20vw, 250px);
+    font-size: clamp(1rem, 2vw, 1.125rem);
     text-align: center;
     color: var(--color-foreground);
     line-height: 1.4;
@@ -67,14 +62,16 @@
 /* Left Text (Aligned Right) */
 .left-text {
     left: -280px;
-    top: 20px;
+    top: 25%;
+    transform: translateY(-50%);
     text-align: right;
 }
 
 /* Right Text (Aligned Left) */
 .right-text {
     right: -280px;
-    bottom: 20px;
+    top: 75%;
+    transform: translateY(-50%);
     text-align: left;
 }
 
@@ -82,9 +79,12 @@
 .scroll-reveal-text {
     max-width: 60%;
     text-align: center;
-    font-size: 32px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     line-height: 1.4;
-    margin-top: 5rem;
+    margin-top: 2rem;
+    opacity: 1; /* Ensure visibility */
+    visibility: visible; /* Prevent accidental hiding */
+    overflow: visible; /* Ensure it doesn’t get clipped */
 }
 
 /* Word Animation */
@@ -94,79 +94,10 @@
     transform: translateY(20px);
 }
 
-/* New Image Scene (Replacing Boxes) */
-.box-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    padding: 12rem 0; /* Adjusted padding */
-    background-color: var(--color-background-alt);
-}
-
-/* Box Wrapper */
-.box-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: relative;
-}
-
-/* Box Container (Now Image Container) */
-.box-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Images replacing boxes */
-.box-image {
-    width: 300px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 12px;
-    margin: 15px 0;
-    box-shadow: none; 
-    background-color: transparent; 
-}
-
-/* Side Rotated Text */
-.side-text-box {
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--color-foreground);
-    position: absolute;
-    white-space: nowrap;
-}
-
-/* Left Rotated Text */
-.left-rotated {
-    left: 0;
-    transform: rotate(-90deg);
-    transform-origin: left center;
-}
-
-/* Right Rotated Text */
-.right-rotated {
-    right: 0;
-    transform: rotate(90deg);
-    transform-origin: right center;
-}
-
 /* Responsive Adjustments */
 @media screen and (max-width: 1200px) {
-    .about-title {
-        font-size: 100px;
-    }
-
     .video-section {
-        flex-direction: column;
-        max-width: 90%;
-        height: auto;
+        max-width: 100%;
     }
 
     .video-container {
@@ -174,65 +105,69 @@
         max-width: 700px;
     }
 
-    .scroll-reveal-text {
-        font-size: 28px;
-        max-width: 80%;
+    .side-text {
+        width: 200px;
+        font-size: clamp(0.875rem, 2vw, 1rem);
     }
 
-    .left-text, .right-text {
-        width: 200px;
-        font-size: 16px;
+    .left-text {
+        left: -220px;
+    }
+
+    .right-text {
+        right: -220px;
+    }
+
+    .scroll-reveal-text {
+        max-width: 80%;
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
     }
 }
 
 @media screen and (max-width: 1024px) {
-    .box-image {
-        width: 90%;
-        max-width: 250px;
+    .side-text {
+        width: 180px;
+        font-size: 0.9rem;
     }
 
-    .side-text-box {
-        font-size: 14px;
+    .left-text {
+        left: -180px;
     }
 
-    .box-section {
-        padding: 8rem 0; /* Adjust padding slightly for smaller screens */
+    .right-text {
+        right: -180px;
+    }
+
+    .scroll-reveal-text {
+        max-width: 85%;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .side-text {
+        position: static;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .video-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .about-title {
-        font-size: 80px;
-    }
-
     .scroll-reveal-text {
-        font-size: 24px;
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
         max-width: 85%;
-    }
-
-    .side-text-box {
-        font-size: 12px;
-    }
-
-    .left-rotated {
-        left: -20px;
-    }
-
-    .right-rotated {
-        right: -20px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .about-title {
-        font-size: 60px;
-    }
-
-    .box-image {
-        max-width: 200px;
-    }
-
-    .side-text-box {
-        font-size: 10px;
+        font-size: clamp(1.5rem, 3vw, 3rem);
     }
 }

@@ -1,126 +1,20 @@
+// page.tsx
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Image from "next/image";
+import React from "react";
+import AboutTitle from "./_components/aboutTitle";
+import VideoSection from "./_components/videoSection";
+import ScrollRevealText from "./_components/scrollRevealText";
+import ParallaxImageSection from "./_components/parallaxImageSection";
 import "./about.css";
 
-// Register GSAP ScrollTrigger Plugin
-gsap.registerPlugin(ScrollTrigger);
-
 export default function AboutPage() {
-  const textRef = useRef<HTMLParagraphElement>(null);
-
-  useEffect(() => {
-    if (textRef.current) {
-      const words = textRef.current.querySelectorAll(".word-animation");
-
-      gsap.fromTo(
-        words,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: textRef.current,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
-  }, []);
-
-  // Function to wrap each word in a span for animation
-  const formatText = (text: string) => {
-    return text.split(" ").map((word, index) => (
-      <span key={index} className="word-animation">
-        {word}&nbsp;
-      </span>
-    ));
-  };
-
   return (
     <section className="about-container">
-      {/* Large Title */}
-      <h1 className="about-title">
-        About deCube.
-      </h1>
-
-      {/* Video & Side Text Section */}
-      <div className="video-section">
-        {/* Left Text */}
-        <p className="side-text left-text">
-          OUR TEAM IS OBSESSED WITH MINIMALISM, SYMMETRY, AND MATERIAL 
-          INNOVATION—PUSHING THE BOUNDARIES OF DESIGN TO DELIVER PIECES THAT 
-          EMBODY SOPHISTICATION AND EXCLUSIVITY.
-        </p>
-
-        {/* Video */}
-        <div className="video-container">
-          <video className="video-player" autoPlay loop muted playsInline>
-            <source
-              src="/videos/20250303_1409_Minimalist_Industrial_Cubes_simple_compose_01jne20zrcf32bpk4cja2m2x7e.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        {/* Right Text */}
-        <p className="side-text right-text">
-          TO REFLECT ITS EXCEPTIONAL CRAFTSMANSHIP, EACH DECUBE ARRIVES IN 
-          BESPOKE PACKAGING WITH A CERTIFICATE OF AUTHENTICITY—A MARK OF 
-          ITS RARITY AND PRESTIGE.
-        </p>
-      </div>
-
-      {/* Scroll-Revealing Text (GSAP Staggering Effect) */}
-      <div className="scroll-reveal-text" ref={textRef}>
-        <p className="reveal-paragraph">
-          {formatText(
-            "deCube is a design-driven company redefining interior aesthetics through sleek, geometric precision. Founded by a collective of cube enthusiasts, we merge artistry and engineering to create objects of pure form and function."
-          )}
-        </p>
-      </div>
-
-      {/* Three Image Scene (Replacing Boxes) */}
-      <section className="box-section">
-        <div className="box-wrapper">
-          {/* Left Rotated Text */}
-          <div className="side-text-box left-rotated">CUBE/KUB/CUBO/KUUTIO/立方体</div>
-
-          <div className="box-container">
-          <Image 
-            src="/top-of-building.png" 
-            alt="Top of building" 
-            width={300} 
-            height={150} 
-            className="box-image"
-          />
-          <Image 
-            src="/middle-of-building.png" 
-            alt="Middle of building" 
-            width={300} 
-            height={150} 
-            className="box-image"
-          />
-          <Image 
-            src="/bottom-of-building.png" 
-            alt="Bottom of building" 
-            width={300} 
-            height={150} 
-            className="box-image"
-          />
-          </div>
-
-          {/* Right Rotated Text */}
-          <div className="side-text-box right-rotated">CUBE/KUB/CUBO/KUUTIO/立方体</div>
-        </div>
-      </section>
+      <AboutTitle />
+      <VideoSection />
+      <ScrollRevealText />
+      <ParallaxImageSection/>
     </section>
   );
 }
