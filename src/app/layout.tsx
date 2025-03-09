@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReactLenis root>
-        <body className={`${rhd.variable} antialiased`}>{children}</body>
+        <body className={`${rhd.className} antialiased`}>{children}</body>
       </ReactLenis>
     </html>
   );
