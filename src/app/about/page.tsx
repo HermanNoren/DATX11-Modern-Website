@@ -7,6 +7,7 @@ import VideoSection from "./_components/videoSection";
 import ScrollRevealText from "./_components/scrollRevealText";
 import ParallaxImageSection from "./_components/parallaxImageSection";
 import "./about.css";
+import AdressSection from "./_components/AdressSection";
 
 export default function AboutPage() {
   return (
@@ -15,6 +16,7 @@ export default function AboutPage() {
       <VideoSection />
       <ScrollRevealText />
       <ParallaxImageSection/>
+      <AdressSection/>
     </section>
   );
 }

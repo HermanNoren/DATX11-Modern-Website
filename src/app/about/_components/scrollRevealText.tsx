@@ -1,4 +1,3 @@
-// _components/ScrollRevealText.tsx
 "use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -32,8 +31,8 @@ export default function ScrollRevealText() {
   }, []);
 
   return (
-    <div className="scroll-reveal-text" ref={textRef}>
-      <p className="reveal-paragraph">
+    <div className="max-w-[60%] mx-auto text-center text-3xl leading-relaxed my-26 opacity-100 overflow-visible" ref={textRef}>
+      <p className="inline-block">
         <MaskText stagger={0.002} phrase="deCube is a design-driven company redefining interior aesthetics through sleek, geometric precision. Founded by a collective of cube enthusiasts, we merge artistry and engineering to create objects of pure form and function." />
       </p>
     </div>
