@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;700&display=swap");
 @import "tailwindcss";
 
 /* ------------------------- Variables ------------------------------------------- */
@@ -160,4 +161,10 @@ input[type="number"] {
   .container.is-sm {
     max-width: calc(var(--size-container) * 1);
   }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Red Hat Display", serif;
 }
