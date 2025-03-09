@@ -9,7 +9,7 @@ export default function Slogan() {
     <section className="relative py-24 z-0">
       <div className="relative container grid grid-rows-2 gap-4">
         <div className="grid grid-cols-12 w-full gap-4">
-          <h2 className="leading-[1] col-span-5">
+          <h2 className="leading-[1] col-span-5 font-normal">
             <MaskText phrase="deCube" fontSize="text-[10em]" stagger={0.02} />
           </h2>
           <div className="w-full h-full col-span-2 overflow-hidden">

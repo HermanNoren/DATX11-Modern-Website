@@ -1,5 +1,4 @@
 import MaskText from "@/components/MaskText";
-import Image from "next/image";
 import kaffe from "@/imgs/png/kaffe.png";
 import stol from "@/imgs/png/stol.png";
 import stol_fonster from "@/imgs/png/stol_fonster.png";
@@ -38,7 +37,7 @@ export default function CubeInfo() {
             <span className="">{cubeLangs}</span>
           </div>
         </div>
-        <p className="absolute top-36 left-12 w-[26.1em] text-xl z-20 text-end">
+        <p className="absolute top-36 left-12 w-[26.1em] text-xl z-20 text-end font-normal">
           <MaskText
             stagger={0.005}
             phrase="A MASTERPIECE OF PRECISION, FORGED FROM ASTROLITE—A MATERIAL RARER
@@ -46,7 +45,7 @@ export default function CubeInfo() {
           />
         </p>
 
-        <p className="absolute top-16 right-12 w-[26.1em] text-xl z-20">
+        <p className="absolute top-16 right-12 w-[26.1em] text-xl z-20 font-normal">
           <MaskText
             stagger={0.005}
             phrase="EACH CUBE IS A STATEMENT OF POWER AND PRESTIGE, AVAILABLE IN THREE
@@ -54,7 +53,7 @@ export default function CubeInfo() {
           />
         </p>
 
-        <p className="absolute top-[50em] left-12 w-[26.1em] text-xl z-20 text-end">
+        <p className="absolute top-[50em] left-12 w-[26.1em] text-xl z-20 text-end font-normal">
           <MaskText
             stagger={0.005}
             phrase="DELIVERED IN METICULOUSLY CRAFTED LUXURY PACKAGING, COMPLETE WITH A
@@ -62,7 +61,7 @@ export default function CubeInfo() {
           />
         </p>
 
-        <p className="absolute top-[36em] right-12 w-[26.1em] text-xl z-20">
+        <p className="absolute top-[36em] right-12 w-[26.1em] text-xl z-20 font-normal">
           <MaskText
             stagger={0.005}
             phrase="deCUBE REDEFINES LUXURY, BLURRING THE LINE BETWEEN ART AND

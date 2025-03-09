@@ -1,18 +1,19 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { RefObject, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 
-export default function Button(props: {
+export default function CubeSizeButton(props: {
   text: string;
   className?: string;
   href?: string;
   onClick?: () => void;
   dark?: boolean;
   icon?: React.ReactNode;
+  ref?: RefObject<HTMLDivElement | null>;
 }) {
   const text = useRef<HTMLSpanElement>(null);
   const timelineOver = useRef<any>(null);
@@ -113,23 +114,27 @@ export default function Button(props: {
   );
 
   return props.href ? (
-    <Link
-      href={props.href}
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
-      className={containerClassName}
-    >
-      {contents}
-    </Link>
+    <div ref={props.ref}>
+      <Link
+        href={props.href}
+        onMouseEnter={onHover}
+        onMouseLeave={onLeave}
+        className={containerClassName}
+      >
+        {contents}
+      </Link>
+    </div>
   ) : (
-    <button
-      type="button"
-      onClick={props.onClick}
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
-      className={containerClassName}
-    >
-      {contents}
-    </button>
+    <div ref={props.ref}>
+      <button
+        type="button"
+        onClick={props.onClick}
+        onMouseEnter={onHover}
+        onMouseLeave={onLeave}
+        className={containerClassName}
+      >
+        {contents}
+      </button>
+    </div>
   );
 }

@@ -1,5 +1,4 @@
 import CubeInfo from "./_components/ScrollCubeSection/CubeInfo";
-import CubeSizes from "./_components/ScrollCubeSection/CubeSizes";
 import Hero from "./_components/ScrollCubeSection/Hero";
 import ScrollCubeSection from "./_components/ScrollCubeSection/ScrollCubeSection";
 import SideScrollVideo from "./_components/ScrollCubeSection/SideScrollVideo";

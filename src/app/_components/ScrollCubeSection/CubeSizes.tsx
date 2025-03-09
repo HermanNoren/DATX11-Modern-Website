@@ -3,8 +3,9 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { JSX, RefObject, useRef, useState } from "react";
+import { JSX, RefObject, useEffect, useRef, useState } from "react";
 import Button from "@/components/Button";
+import CubeSizeButton from "./CubeSizeButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,7 @@ export default function CubeSizes(props: {
 
   const borderAnimateDuration = 1;
   const borderAnimateEase = "power4.inOut";
+  const borderToggleAction = "play none none none";
 
   const sizes = [
     {
@@ -33,19 +35,13 @@ export default function CubeSizes(props: {
       id: 1,
       title: "Regal",
       size: "15x15",
-      description: `The Regal, a perfect balance of rarity and prestige,
-      the go-to choice for industry leaders and forward-thinkers.
-      Coveted yet attainable, it's the cube that moves industries and closes deals.
-      When a Regal is in your hands, you hold more than metal—you hold progress.`,
+      description: `The Regal, a perfect balance of rarity and prestige, the go-to choice for industry leaders and forward-thinkers. Coveted yet attainable, it's the cube that moves industries and closes deals. When a Regal is in your hands, you hold more than metal—you hold progress.`,
     },
     {
       id: 2,
       title: "Imperial",
       size: "20x20",
-      description: `The Imperial, the largest and boldest, A monolith of Astrolite,
-      commanding attention whether placed in a corporate headquarters, or private collection.
-      Its sheer presence is a testament to those who operate on a grander scale.
-      To own an Imperial is to stake a claim in the future itself.`,
+      description: `The Imperial, the largest and boldest, A monolith of Astrolite, commanding attention whether placed in a corporate headquarters, or private collection. Its sheer presence is a testament to those who operate on a grander scale. To own an Imperial is to stake a claim in the future itself.`,
     },
   ];
 
@@ -53,6 +49,11 @@ export default function CubeSizes(props: {
   const descMd = useRef<HTMLSpanElement>(null);
   const descLg = useRef<HTMLSpanElement>(null);
   const descRefs = [descSm, descMd, descLg];
+
+  const buttonSm = useRef<HTMLDivElement>(null);
+  const buttonMd = useRef<HTMLDivElement>(null);
+  const buttonLg = useRef<HTMLDivElement>(null);
+  const buttonRefs = [buttonSm, buttonMd, buttonLg];
 
   const currentID = useRef<number>(1);
   const newID = useRef<number>(1);
@@ -85,7 +86,7 @@ export default function CubeSizes(props: {
         scrollTrigger: {
           trigger: trigger.current,
           start: "top top",
-          toggleActions: "play none none reverse",
+          toggleActions: borderToggleAction,
         },
       }
     );
@@ -104,7 +105,7 @@ export default function CubeSizes(props: {
         scrollTrigger: {
           trigger: trigger.current,
           start: "top top",
-          toggleActions: "play none none reverse",
+          toggleActions: borderToggleAction,
         },
       }
     );
@@ -123,7 +124,7 @@ export default function CubeSizes(props: {
         scrollTrigger: {
           trigger: trigger.current,
           start: "top top",
-          toggleActions: "play none none reverse",
+          toggleActions: borderToggleAction,
         },
       }
     );
@@ -142,7 +143,7 @@ export default function CubeSizes(props: {
         scrollTrigger: {
           trigger: trigger.current,
           start: "top top",
-          toggleActions: "play none none reverse",
+          toggleActions: borderToggleAction,
         },
       }
     );
@@ -171,7 +172,7 @@ export default function CubeSizes(props: {
     );
   }
 
-  function animateTextScroll(ref: RefObject<HTMLSpanElement | null>) {
+  function animateTextScrollIn(ref: RefObject<HTMLSpanElement | null>) {
     if (!ref.current) return;
 
     const text = ref.current.querySelectorAll("#sizeDescText");
@@ -187,7 +188,28 @@ export default function CubeSizes(props: {
         scrollTrigger: {
           trigger: trigger.current,
           start: "top top",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }
+
+  function animateButtonsScrollIn(ref: RefObject<HTMLDivElement | null>) {
+    if (!ref.current) return;
+    const text = ref.current.querySelectorAll("#buttonTextOver");
+
+    gsap.fromTo(
+      text,
+      { y: "100%" },
+      {
+        y: "0",
+        duration: 0.5,
+        stagger: 0.02,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: trigger.current,
+          start: "top top",
+          toggleActions: "play none none none",
         },
       }
     );
@@ -199,7 +221,10 @@ export default function CubeSizes(props: {
       animateBorderRight();
       animateBorderBottom();
       animateBorderLeft();
-      animateTextScroll(descRefs[currentID.current]);
+      animateTextScrollIn(descRefs[currentID.current]);
+      for (const ref of buttonRefs) {
+        animateButtonsScrollIn(ref);
+      }
     },
     {
       scope: trigger,
@@ -210,10 +235,7 @@ export default function CubeSizes(props: {
     propsOnClicks[i]();
     newID.current = i;
     const descStagger = 0.002;
-    if (newID.current > currentID.current) {
-      animateText(descRefs[newID.current], "100%", "0", descStagger);
-      animateText(descRefs[currentID.current], "0", "-100%", descStagger);
-    } else if (newID.current < currentID.current) {
+    if (newID.current !== currentID.current) {
       animateText(descRefs[newID.current], "-100%", "0", descStagger);
       animateText(descRefs[currentID.current], "0", "100%", descStagger);
     }
@@ -227,12 +249,13 @@ export default function CubeSizes(props: {
         <div className="relative pt-[7em] flex flex-col gap-1">
           {sizes.map((size, i) => {
             return (
-              <Button
+              <CubeSizeButton
                 key={i}
                 onClick={() => onClick(size.id)}
                 text={size.title}
-                className="text-4xl uppercase"
-              ></Button>
+                className="text-6xl uppercase"
+                ref={buttonRefs[i]}
+              ></CubeSizeButton>
             );
           })}
         </div>
@@ -257,8 +280,8 @@ export default function CubeSizes(props: {
             ></div>
           </div>
         </div>
-        <div className="relative grid place-items-center">
-          <div className="w-full h-[30em]">{descriptions}</div>
+        <div className="relative flex flex-col justify-center font-normal uppercase">
+          <div className="h-[30em]">{descriptions}</div>
         </div>
       </div>
     </section>
@@ -271,7 +294,7 @@ function SizeInfo(props: {
 }) {
   const words = props.text.split(" ");
   return (
-    <div className="absolute">
+    <div className="absolute w-[20em]">
       <span ref={props.ref} className="flex flex-wrap h-4 leading-[1.25em]">
         {words.map((word, i) => {
           const chars = word.split("");
