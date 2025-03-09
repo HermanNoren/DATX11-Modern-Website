@@ -74,7 +74,7 @@ export default function Button(props: {
             const chars = word.split("");
 
             return (
-              <span key={i} className="relative flex mr-1">
+              <span key={i} className="relative inline-flex mr-1">
                 {chars.map((char, i) => {
                   return (
                     <span id="buttonTextOver" className="relative" key={i}>
@@ -91,7 +91,7 @@ export default function Button(props: {
             const chars = word.split("");
 
             return (
-              <span key={i} className="relative flex mr-1">
+              <span key={i} className="relative inline-flex mr-1">
                 {chars.map((char, i) => {
                   return (
                     <span id="buttonTextUnder" className="relative" key={i}>

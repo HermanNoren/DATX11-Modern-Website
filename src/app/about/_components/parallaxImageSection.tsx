@@ -42,7 +42,7 @@ export default function ParallaxImageSection() {
           />
         </p>
         <div className="absolute top-[40em] right-35 w-[26.1em] text-xl z-20">
-          <Button text="GO TO PRODUCTS" href="/products" />
+          <Button text="GO TO PRODUCTS." href="/products" />
         </div>
       </div>
     </section>
