@@ -103,7 +103,7 @@
 body {
   color: var(--color-foreground);
   background: var(--color-background);
-  font-family: "Poppins", serif;
+  font-family: var(--font-rhd), serif;
   font-weight: 300;
   font-size: var(--size-font);
 }
