@@ -11,70 +11,6 @@
     overflow: visible; /* Ensure animations work */
 }
 
-/* Title */
-.about-title {
-    font-size: clamp(2rem, 5vw, 6rem);
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-/* Video Section */
-.video-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    max-width: 895px;
-    height: 465px;
-    margin-bottom: 8rem;
-    overflow: visible;
-}
-
-/* Video Container */
-.video-container {
-    width: 895px;
-    height: 465px;
-    border-radius: 24px;
-    overflow: hidden;
-}
-
-/* Video Player */
-.video-player {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 24px;
-    display: block;
-}
-
-/* Side Texts */
-.side-text {
-    position: absolute;
-    width: clamp(180px, 20vw, 250px);
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    text-align: center;
-    color: var(--color-foreground);
-    line-height: 1.4;
-}
-
-/* Left Text (Aligned Right) */
-.left-text {
-    left: -280px;
-    top: 25%;
-    transform: translateY(-50%);
-    text-align: right;
-}
-
-/* Right Text (Aligned Left) */
-.right-text {
-    right: -280px;
-    top: 75%;
-    transform: translateY(-50%);
-    text-align: left;
-}
-
 /* Scroll Reveal Text */
 .scroll-reveal-text {
     max-width: 60%;
@@ -92,6 +28,38 @@
     display: inline-block;
     opacity: 0;
     transform: translateY(20px);
+}
+
+/* Address Section */
+.address-section {
+    background-color: #95614E;
+    color: var(--color-foreground);
+    text-align: center;
+    padding: var(--section-padding) var(--container-padding);
+    border-radius: 10px;
+    max-width: var(--size-container);
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Address GIF */
+.address-gif {
+    display: block;
+    margin: 0 auto 20px;
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Address Text */
+.address-text {
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Responsive Adjustments */
@@ -157,6 +125,10 @@
         align-items: center;
         text-align: center;
     }
+
+    .address-section {
+        padding: 30px 15px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -164,10 +136,23 @@
         font-size: clamp(1rem, 2.5vw, 1.5rem);
         max-width: 85%;
     }
+
+    .address-text {
+        font-size: var(--text-sm);
+        max-width: 90%;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .about-title {
         font-size: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    .address-section {
+        padding: 25px 10px;
+    }
+
+    .address-gif {
+        width: 80px;
     }
 }
