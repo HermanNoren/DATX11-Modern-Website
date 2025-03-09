@@ -25,7 +25,7 @@ export default function AstrolightHero() {
         playsInline
       >
         <source
-          src="/videos/20250303_1409_Minimalist_Industrial_Cubes_simple_compose_01jne20zrcf32bpk4cja2m2x7e.mp4"
+          src="/videos/20250305_1934_Liquid_Steel_Sphere_simple_compose_01jnksddjdf51tj6ac4mdp2erg.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.
@@ -35,12 +35,12 @@ export default function AstrolightHero() {
       <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
 
       {/* Animated Text */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+      <div className="absolute inset-0 flex flex-col items-start justify-end text-white text-center px-4">
         <h1
           ref={textRef}
-          className="text-5xl md:text-9xl font-light tracking-wide"
+          className="text-5xl md:text-[12em] font-light tracking-wide"
         >
-          deCube
+          deCube.
         </h1>
       </div>
     </div>

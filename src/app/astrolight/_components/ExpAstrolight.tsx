@@ -32,7 +32,7 @@ export default function ExpAstrolight() {
             playsInline
           >
             <source
-              src="/videos/20250305_1934_Liquid_Steel_Sphere_simple_compose_01jnksddjdf51tj6ac4mdp2erg.mp4"
+              src="/videos\20250309_2326_Loop Video_loop_01jnyg91p2fwy9apb9j21h0nry.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
