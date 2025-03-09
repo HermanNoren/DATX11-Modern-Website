@@ -37,7 +37,7 @@ export default function MaskText(
         scrollTrigger: {
           trigger: trigger.current,
           start: "top bottom",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none reset",
         },
       }
     );
