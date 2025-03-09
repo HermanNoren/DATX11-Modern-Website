@@ -24,7 +24,7 @@ export default function LoadingScreen({ onFinish }: { onFinish: () => void }) {
           fadeOut ? "opacity-0" : "opacity-100" }`}> CUBE/KUB/CUBO/KUUTIO/立方体
       </p>
 
-      <p className={`absolute top-1/4 rotate-[90deg] ml-225 text-2xl text-gray-700 transition-opacity duration-1000 ${
+      <p className={`absolute top-1/4 rotate-[90deg] p-1 ml-225 text-2xl font-bold text-gray-700 transition-opacity duration-1000 ${
           fadeOut ? "opacity-0" : "opacity-100" }`}> CUBE/KUB/CUBO/KUUTIO/立方体
       </p>
 
@@ -32,7 +32,7 @@ export default function LoadingScreen({ onFinish }: { onFinish: () => void }) {
           fadeOut ? "opacity-0" : "opacity-100" }`}> CUBE/KUB/CUBO/KUUTIO/立方体
       </p>
 
-      <p className={`absolute bottom-1/4 rotate-[270deg] mr-225 text-2xl text-gray-700 transition-opacity duration-1000 ${
+      <p className={`absolute bottom-1/4 rotate-[270deg] p-1 mr-225 text-2xl font-bold text-gray-700 transition-opacity duration-1000 ${
           fadeOut ? "opacity-0" : "opacity-100" }`}> CUBE/KUB/CUBO/KUUTIO/立方体
       </p>
     </div>
