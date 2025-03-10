@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "@/utils/lenis";
+import Header from "@/components/header/Header";
 
 export const rhd = Red_Hat_Display({
   subsets: ["latin"],
@@ -21,7 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReactLenis root>
-        <body className={`${rhd.variable} antialiased`}>{children}</body>
+        <body className={`${rhd.className} antialiased`}>
+          <Header />
+          {children}
+        </body>
       </ReactLenis>
     </html>
   );

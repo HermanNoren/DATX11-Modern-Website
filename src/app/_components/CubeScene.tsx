@@ -12,7 +12,7 @@ export default function CubeScene() {
       <ambientLight intensity={1.5} />
       <directionalLight position={[5, 5, 5]} intensity={0.5} />
       <Cube />
-      <Environment files="/skybox.exr" />
+      <Environment preset="studio" />
     </Canvas>
   );
 }
