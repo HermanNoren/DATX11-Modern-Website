@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="product-gif-middle">
                 <img 
-                    src="/cube-gif.gif" 
+                    src="/PETITE.gif" 
                     alt="Product Details" 
                     className="details-gif"
                 />
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="product-gif-middle">
                 <img 
-                    src="cube-gif.gif" 
+                    src="REGAL.gif" 
                     alt="Product Details" 
                     className="details-gif"
                 />
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="product-gif-middle">
                 <img 
-                    src="/cube-gif.gif" 
+                    src="/IMPERIAL.gif" 
                     alt="Product Details" 
                     className="details-gif"
                 />
