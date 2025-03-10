@@ -33,7 +33,7 @@ export default function ScrollRevealText() {
   return (
     <div className="max-w-[60%] mx-auto text-center text-3xl leading-relaxed my-38 opacity-100 overflow-visible" ref={textRef}>
       <p className="inline-block">
-        <MaskText stagger={0.002} phrase="deCube is a design-driven company redefining interior aesthetics through sleek, geometric precision. Founded by a collective of cube enthusiasts, we merge artistry and engineering to create objects of pure form and function." />
+        <MaskText stagger={0.002} highlightWords="deCube sleek, geometric precision. collective of cube enthusiasts, pure form and function." highlightColor="font-normal"  phrase="deCube is a design-driven company redefining interior aesthetics through sleek, geometric precision. Founded by a collective of cube enthusiasts, we merge artistry and engineering to create objects of pure form and function." />
       </p>
     </div>
   );

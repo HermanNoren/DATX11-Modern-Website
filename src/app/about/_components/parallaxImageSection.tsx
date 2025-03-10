@@ -6,7 +6,7 @@ export default function ParallaxImageSection() {
   const cubeLangs = "CUBE/KUB/CUBO/KUUTIO/立方体";
   return (
     <section className="relative w-screen my-24">
-      <div className="relative container is-md h-[96.1em]">
+      <div className="relative container is-md h-[55em]">
         <div className="absolute right-36">
           <div className="relative w-96 aspect-[1/1.5]">
             <Image src="/cube image for about.png" alt="Chair and Cube" layout="fill" objectFit="cover" />
