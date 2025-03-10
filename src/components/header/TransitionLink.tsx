@@ -10,12 +10,22 @@ export default function TransitionLink(props: {
   const router = useTransitionRouter();
 
   function slideInOut() {
-    document.documentElement.animate([{}, {}], {
-      duration: 1500,
-      easing: "cubic-bezier(0.87, 0, 0.13, 1)",
-      fill: "forwards",
-      pseudoElement: "::view-transition-old(root)",
-    });
+    document.documentElement.animate(
+      [
+        {
+          transform: "translateX(0)",
+        },
+        {
+          transform: "translateX(10em)",
+        },
+      ],
+      {
+        duration: 1500,
+        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+        fill: "forwards",
+        pseudoElement: "::view-transition-old(root)",
+      }
+    );
 
     document.documentElement.animate(
       [
