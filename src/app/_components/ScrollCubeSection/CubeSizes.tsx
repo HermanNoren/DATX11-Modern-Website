@@ -294,7 +294,7 @@ function SizeInfo(props: {
 }) {
   const words = props.text.split(" ");
   return (
-    <div className="absolute w-[20em]">
+    <div className="absolute w-[15em] text-xs">
       <span ref={props.ref} className="flex flex-wrap h-4 leading-[1.25em]">
         {words.map((word, i) => {
           const chars = word.split("");
