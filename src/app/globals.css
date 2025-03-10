@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;700&display=swap");
 @import "tailwindcss";
 
 /* ------------------------- Variables ------------------------------------------- */
 @theme {
   --color-background: oklch(0.985 0 0);
   --color-foreground: oklch(0.147 0.004 49.25);
+  --color-accent: #95614e;
   --spacing: 0.25em;
 }
 :root {
@@ -102,7 +104,12 @@
 
 body {
   color: var(--color-foreground);
-  background: var(--color-background);
+  background: rgb(250, 250, 250);
+  background: linear-gradient(
+    90deg,
+    rgba(250, 250, 250, 1) 0%,
+    rgba(223, 223, 222, 1) 100%
+  );
   font-family: "Poppins", serif;
   font-weight: 300;
   font-size: var(--size-font);
@@ -160,4 +167,10 @@ input[type="number"] {
   .container.is-sm {
     max-width: calc(var(--size-container) * 1);
   }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Red Hat Display", serif;
 }
