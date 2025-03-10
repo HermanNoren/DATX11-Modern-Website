@@ -17,7 +17,6 @@ export default function Button(props: {
   const text = useRef<HTMLSpanElement>(null);
   const timelineOver = useRef<any>(null);
   const timelineUnder = useRef<any>(null);
-  const trigger = useRef<any>(null);
 
   useGSAP(() => {
     if (!text.current) return;
@@ -115,7 +114,6 @@ export default function Button(props: {
 
   return props.href ? (
     <Link
-      ref={trigger}
       href={props.href}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
@@ -125,7 +123,6 @@ export default function Button(props: {
     </Link>
   ) : (
     <button
-      ref={trigger}
       type="button"
       onClick={props.onClick}
       onMouseEnter={onHover}
