@@ -17,7 +17,6 @@ export default function Button(props: {
   const text = useRef<HTMLSpanElement>(null);
   const timelineOver = useRef<any>(null);
   const timelineUnder = useRef<any>(null);
-  const trigger = useRef<any>(null);
 
   useGSAP(() => {
     if (!text.current) return;
@@ -67,7 +66,7 @@ export default function Button(props: {
   const words = props.text.split(" ");
 
   const contents = (
-    <div className="relative h-4 w-fit">
+    <div className="relative h-4 overflow-hidden w-fit">
       <span ref={text} className="flex flex-col h-4 relative leading-[1em]">
         <span className="relative">
           {words.map((word, i) => {
@@ -108,30 +107,30 @@ export default function Button(props: {
   );
 
   const containerClassName = cn(
-    "relative w-fit flex justify-between items-center overflow-hidden cursor-pointer",
+    "relative w-fit flex justify-between items-center overflow-hidden cursor-pointer gap-1 items-center",
     props.className,
     props.dark ? "text-background" : "text-foreground"
   );
 
   return props.href ? (
     <Link
-      ref={trigger}
       href={props.href}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       className={containerClassName}
     >
+      {props.icon ? props.icon : null}
       {contents}
     </Link>
   ) : (
     <button
-      ref={trigger}
       type="button"
       onClick={props.onClick}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       className={containerClassName}
     >
+      {props.icon ? props.icon : null}
       {contents}
     </button>
   );
