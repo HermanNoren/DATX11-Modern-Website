@@ -1,3 +1,4 @@
+/* astrolight hero*/
 "use client";
 
 import { useEffect, useRef } from "react";
