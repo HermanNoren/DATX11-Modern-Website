@@ -115,6 +115,7 @@ export default function Button(props: {
   return props.href ? (
     <Link
       href={props.href}
+      onClick={props.onClick}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       className={containerClassName}

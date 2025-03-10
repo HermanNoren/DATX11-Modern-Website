@@ -3,6 +3,7 @@ import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 import { ReactLenis } from "@/utils/lenis";
 import Header from "@/components/header/Header";
+import { ViewTransitions } from "next-view-transitions";
 
 export const rhd = Red_Hat_Display({
   subsets: ["latin"],
@@ -20,13 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <ReactLenis root>
-        <body className={`${rhd.className} antialiased`}>
-          <Header />
-          {children}
-        </body>
-      </ReactLenis>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <ReactLenis root>
+          <body className={`${rhd.className} antialiased`}>
+            <Header />
+            {children}
+          </body>
+        </ReactLenis>
+      </html>
+    </ViewTransitions>
   );
 }
