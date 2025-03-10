@@ -36,7 +36,7 @@ export default function Header() {
     },
     {
       name: "Products",
-      href: "/products",
+      href: "/ProductPage",
     },
     {
       name: "Astrolight",
