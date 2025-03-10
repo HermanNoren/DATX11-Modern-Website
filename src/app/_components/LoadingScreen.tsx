@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function LoadingScreen({ onFinish }: { onFinish: () => void }) {
   const [exit, setExit] = useState(false);
-  const [isActive, setIsActive] = useState(true);
 
   useEffect(() => {
     setTimeout(() => setExit(true), 3000);
@@ -16,7 +15,7 @@ export default function LoadingScreen({ onFinish }: { onFinish: () => void }) {
       clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
     },
     exit: {
-      clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+      clipPath: "polygon(0 0, 100% 0, 100% 0, 0% 0)",
       transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] },
     },
   };
