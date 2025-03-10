@@ -37,8 +37,8 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed inset-0 z-[99]">
-      <nav className="w-full container is-full py-8 flex justify-between text-xl">
+    <header className="fixed w-full top-0 left-0 z-[99]">
+      <nav className="w-full container is-full py-[var(--container-padding)] flex justify-between text-xl">
         <Button
           href="/"
           text="deCube"

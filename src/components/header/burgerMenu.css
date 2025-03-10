@@ -23,3 +23,13 @@
 .burger::after {
   top: -5px;
 }
+
+.burgerActive::before {
+  top: 1px;
+  transform: rotate(45deg);
+}
+
+.burgerActive::after {
+  top: -1px;
+  transform: rotate(-45deg);
+}
