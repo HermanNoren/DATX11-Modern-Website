@@ -1,0 +1,126 @@
+/* About Page Container */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--size-container-max);
+    margin: 0 auto;
+    padding: var(--section-padding) var(--container-padding);
+    overflow: visible; /* Ensure animations work */
+}
+
+/* Scroll Reveal Text */
+.scroll-reveal-text {
+    max-width: 60%;
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.4;
+    margin-top: 2rem;
+    opacity: 1; /* Ensure visibility */
+    visibility: visible; /* Prevent accidental hiding */
+    overflow: visible; /* Ensure it doesn’t get clipped */
+}
+
+/* Word Animation */
+.word-animation {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1200px) {
+    .video-section {
+        max-width: 100%;
+    }
+
+    .video-container {
+        width: 90%;
+        max-width: 700px;
+    }
+
+    .side-text {
+        width: 200px;
+        font-size: clamp(0.875rem, 2vw, 1rem);
+    }
+
+    .left-text {
+        left: -220px;
+    }
+
+    .right-text {
+        right: -220px;
+    }
+
+    .scroll-reveal-text {
+        max-width: 80%;
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .side-text {
+        width: 180px;
+        font-size: 0.9rem;
+    }
+
+    .left-text {
+        left: -180px;
+    }
+
+    .right-text {
+        right: -180px;
+    }
+
+    .scroll-reveal-text {
+        max-width: 85%;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .side-text {
+        position: static;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .video-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .address-section {
+        padding: 30px 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .scroll-reveal-text {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        max-width: 85%;
+    }
+
+    .address-text {
+        font-size: var(--text-sm);
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-title {
+        font-size: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    .address-section {
+        padding: 25px 10px;
+    }
+
+    .address-gif {
+        width: 80px;
+    }
+}
