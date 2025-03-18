@@ -4,6 +4,7 @@ import "./globals.css";
 import { ReactLenis } from "@/utils/lenis";
 import Header from "@/components/header/Header";
 import { ViewTransitions } from "next-view-transitions";
+import Providers from "./Providers";
 
 export const rhd = Red_Hat_Display({
   subsets: ["latin"],
@@ -26,7 +27,7 @@ export default function RootLayout({
         <ReactLenis root>
           <body className={`${rhd.className} antialiased`}>
             <Header />
-            {children}
+            <Providers>{children}</Providers>
           </body>
         </ReactLenis>
       </html>
