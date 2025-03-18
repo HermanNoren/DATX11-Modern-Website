@@ -63,7 +63,10 @@ export default function ScrollCubeSection(props: {
     }
   );
   return (
-    <div ref={scrollSectionContainer} className="relative w-full">
+    <div
+      ref={scrollSectionContainer}
+      className="relative w-full bg-background z-10"
+    >
       <div
         ref={sticky}
         className="absolute container inset-0 w-full h-lvh z-10"
@@ -71,7 +74,7 @@ export default function ScrollCubeSection(props: {
         <CubeScene cubeSize={cubeSize} />
       </div>
       {props.children}
-      <div className="my-24">
+      <div className="mt-24">
         <CubeSizes
           onClickSm={() => onClick(0.7)}
           onClickMd={() => onClick(1)}
