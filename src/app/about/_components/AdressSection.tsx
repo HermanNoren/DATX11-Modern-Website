@@ -2,16 +2,16 @@ import Image from "next/image";
 
 export default function AdressSection() {
   return (
-    <section className="w-screen bg-[#95614E] text-white py- flex justify-center z-10 relative">
+    <section className="w-screen bg-[#95614E] text-white py- flex justify-center">
       <div className="w-full max-w-[1200px] bg-[#95614E] rounded-[24px] py-16 px-8 flex flex-col items-center text-center">
         {/* GIF centered at the top */}
         <div className="mb-6">
-          <Image
-            src="/aboutGIF.gif"
-            alt="About GIF"
-            width={120}
-            height={120}
-            className="rounded-md mx-auto"
+          <Image 
+            src="/aboutGIF.gif" 
+            alt="About GIF" 
+            width={120} 
+            height={120} 
+            className="rounded-md mx-auto" 
           />
         </div>
 

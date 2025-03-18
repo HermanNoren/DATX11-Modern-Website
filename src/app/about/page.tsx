@@ -8,7 +8,6 @@ import ScrollRevealText from "./_components/scrollRevealText";
 import ParallaxImageSection from "./_components/parallaxImageSection";
 /*import "./about.css";*/
 import AdressSection from "./_components/AdressSection";
-import Footer from "@/components/footer/Footer";
 
 export default function AboutPage() {
   return (
@@ -16,9 +15,8 @@ export default function AboutPage() {
       <AboutTitle />
       <VideoSection />
       <ScrollRevealText />
-      <ParallaxImageSection />
-      <AdressSection />
-      <Footer />
+      <ParallaxImageSection/>
+      <AdressSection/>
     </section>
   );
 }
