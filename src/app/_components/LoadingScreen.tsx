@@ -146,7 +146,7 @@ export default function LoadingScreen({ onFinish }: { onFinish: () => void }) {
   return (
     <motion.div
       className={cn(
-        "fixed inset-0 flex items-center justify-center bg-dark-background z-1000",
+        "fixed inset-0 flex items-center justify-center bg-dark-background z-[1000]",
         isLoaded && !isClicked ? "cursor-pointer" : ""
       )}
       onClick={onClick}

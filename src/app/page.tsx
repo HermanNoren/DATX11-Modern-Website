@@ -3,7 +3,7 @@ import Hero from "./_components/ScrollCubeSection/Hero";
 import ScrollCubeSection from "./_components/ScrollCubeSection/ScrollCubeSection";
 import SideScrollVideo from "./_components/ScrollCubeSection/SideScrollVideo";
 import Slogan from "./_components/ScrollCubeSection/Slogan";
-import Footer from "./_components//footer/footer";
+import Footer from "../components/footer/Footer";
 
 export default function Home() {
   return (
