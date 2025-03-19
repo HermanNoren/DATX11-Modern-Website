@@ -16,7 +16,7 @@ export default function TransitionLink(props: {
           transform: "translateX(0)",
         },
         {
-          transform: "translateX(10em)",
+          transform: "translateX(0)",
         },
       ],
       {
@@ -30,15 +30,20 @@ export default function TransitionLink(props: {
     document.documentElement.animate(
       [
         {
-          clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
+          scale: "110%",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 100% 0%)",
         },
         {
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%)",
+        },
+        {
+          scale: "100%",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%",
         },
       ],
       {
         duration: 1500,
-        easing: "cubic-bezier(0.87, 0, 0.13, 1",
+        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
         fill: "forwards",
         pseudoElement: "::view-transition-new(root)",
       }
