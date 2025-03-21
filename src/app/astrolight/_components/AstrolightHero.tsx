@@ -41,7 +41,7 @@ export default function AstrolightHero() {
           ref={textRef}
           className="text-5xl md:text-[12em] font-light tracking-wide"
         >
-          deCube.
+          deCube
         </h1>
       </div>
     </div>

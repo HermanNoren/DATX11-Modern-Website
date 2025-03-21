@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import MaskText from "@/components/MastText"; // Assuming MaskText is in components
+import MaskText from "@/components/MastText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,24 +67,32 @@ export default function AstrolightInfo() {
   return (
     <section className="container py-[var(--section-padding)] flex flex-col md:flex-row justify-center items-start gap-[calc(var(--gap)*10)] mx-auto">
       {/* Left Side - Animated Text Content */}
-      <div className="w-full md:w-1/4 text-left text-[var(--color-foreground)]" ref={textRef}>
+      <div
+        className="w-full md:w-1/4 text-left text-[var(--color-foreground)]"
+        ref={textRef}
+      >
         <p className="text-[var(--text-lg)] leading-[var(--text-lg--line-height)] word-animation">
-          <MaskText stagger={0.002} phrase="ASTROLITE—A CELESTIAL ALLOY UNEARTHED FROM THE DEPTHS OF SPACE, FORGED INTO PERFECT CUBES OF UNYIELDING BRILLIANCE." />
+          <MaskText
+            stagger={0.002}
+            phrase="ASTROLITE—A CELESTIAL ALLOY UNEARTHED FROM THE DEPTHS OF SPACE, FORGED INTO PERFECT CUBES OF UNYIELDING BRILLIANCE."
+          />
         </p>
         <p className="mt-[calc(var(--spacing)*1.5)] text-[var(--text-lg)] leading-[var(--text-lg--line-height)] word-animation">
-          <MaskText stagger={0.002} phrase="A MATERIAL BORN FROM COSMIC VIOLENCE, SHAPED BY EXTREME FORCES BEYOND EARTH’S REACH. ITS METALLIC SURFACE CAPTURES LIGHT IN A WAY UNLIKE ANYTHING FOUND IN NATURE, REFLECTING A SUBTLE, OTHERWORLDLY GLOW." />
+          <MaskText
+            stagger={0.002}
+            phrase="A MATERIAL BORN FROM COSMIC VIOLENCE, SHAPED BY EXTREME FORCES BEYOND EARTH’S REACH. ITS METALLIC SURFACE CAPTURES LIGHT IN A WAY UNLIKE ANYTHING FOUND IN NATURE, REFLECTING A SUBTLE, OTHERWORLDLY GLOW."
+          />
         </p>
         <p className="mt-[calc(var(--spacing)*1.5)] text-[var(--text-lg)] leading-[var(--text-lg--line-height)] word-animation">
-          <MaskText stagger={0.002} phrase="DISCOVERED ON ASTEROID RYUGU AND BROUGHT BACK THROUGH A GROUNDBREAKING MISSION, IT STANDS AS A TESTAMENT TO HUMAN INGENUITY AND THE RELENTLESS PURSUIT OF THE EXCEPTIONAL." />
+          <MaskText
+            stagger={0.002}
+            phrase="DISCOVERED ON ASTEROID RYUGU AND BROUGHT BACK THROUGH A GROUNDBREAKING MISSION, IT STANDS AS A TESTAMENT TO HUMAN INGENUITY AND THE RELENTLESS PURSUIT OF THE EXCEPTIONAL."
+          />
         </p>
       </div>
 
-      {/* Right Side - Static Frame with Magnetic Image */}
-      <div className="relative w-full max-w-sm md:max-w-md flex justify-end">
-        {/* Static Frame - Taller than Wide */}
-        <div className="absolute w-[80%] h-[110%] border-2 border-[var(--color-foreground)] pointer-events-none"></div>
-
-        {/* Moving Image inside Independent Frame */}
+      {/* Right Side - Magnetic Image */}
+      <div className="w-full max-w-sm md:max-w-md flex justify-end">
         <div ref={imageRef} className="relative w-full h-auto overflow-hidden">
           <img
             src="/astrolight 3d.png"
