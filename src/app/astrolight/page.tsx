@@ -18,7 +18,6 @@ export default function AstrolightPage() {
         <AstrolightInfo />
         <ImageSection />
         <AstroCubeRepel />
-        <div className="w-full h-[30em] bg-background" />
       </div>
       <Footer />
     </section>
