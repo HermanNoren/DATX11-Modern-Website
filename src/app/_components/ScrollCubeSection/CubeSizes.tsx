@@ -244,7 +244,7 @@ export default function CubeSizes(props: {
   }
 
   return (
-    <section ref={trigger} className="relative h-[200lvh] z-20">
+    <section ref={trigger} className="relative h-[300lvh] z-20">
       <div className="sticky inset-0 container w-full h-lvh grid grid-cols-[1fr_30em_1fr] gap-4">
         <div className="relative pt-[7em] flex flex-col gap-1">
           {sizes.map((size, i) => {

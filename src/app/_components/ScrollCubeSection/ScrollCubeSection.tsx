@@ -4,12 +4,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
-import Cube from "./Cube";
 import CubeScene from "./CubeScene";
 import CubeSizes from "./CubeSizes";
 import { availableCubeSizes } from "@/utils/cubeSizes";
+import Video from "./Video";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,11 +60,9 @@ export default function ScrollCubeSection(props: {
       scope: scrollSectionContainer,
     }
   );
+
   return (
-    <div
-      ref={scrollSectionContainer}
-      className="relative w-full bg-background z-10"
-    >
+    <div ref={scrollSectionContainer} className="relative w-full z-10">
       <div
         ref={sticky}
         className="absolute container inset-0 w-full h-lvh z-10"
@@ -81,6 +77,7 @@ export default function ScrollCubeSection(props: {
           onClickLg={() => onClick(1.3)}
         />
       </div>
+      <Video />
     </div>
   );
 }

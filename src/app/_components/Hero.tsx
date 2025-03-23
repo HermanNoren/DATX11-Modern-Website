@@ -1,0 +1,35 @@
+import { ArrowDown } from "lucide-react";
+import SlideUpText from "@/components/page_transition/SlideUpText";
+
+export default function Hero() {
+  return (
+    <section className="relative w-screen h-lvh z-20">
+      <div className="relative container h-full flex flex-col justify-center pointer-events-none select-none">
+        <h1 className="grid grid-rows-3 grid-cols-2 uppercase text-6xl sm:text-8xl">
+          <span className="col-span-2 overflow-hidden">
+            <SlideUpText text="Everything is" />
+          </span>
+          <span className="overflow-hidden">
+            <SlideUpText text="better" />
+          </span>
+          <span className="text-end overflow-hidden">
+            <SlideUpText text="in" />
+          </span>
+          <span className="col-span-2 text-end overflow-hidden">
+            <SlideUpText text="cube form" />
+          </span>
+        </h1>
+        <div className="absolute bottom-[var(--container-padding)] right-[var(--container-padding)] flex">
+          <span className="flex gap-2">
+            <p className="overflow-hidden">
+              <SlideUpText text="Scroll to explore" />
+            </p>
+            <span className="overflow-hidden">
+              <SlideUpText symbol={<ArrowDown strokeWidth={1} />} />
+            </span>
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}

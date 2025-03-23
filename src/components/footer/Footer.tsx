@@ -3,7 +3,7 @@ import SlideText from "./_components/SlideText";
 
 export default function Footer() {
   return (
-    <footer className="relative">
+    <footer className="relative gradient-bg">
       <SlideText />
       <CTA />
     </footer>

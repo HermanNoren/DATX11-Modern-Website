@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Button(props: {
   text: string;
@@ -13,7 +14,9 @@ export default function Button(props: {
   onClick?: () => void;
   dark?: boolean;
   icon?: React.ReactNode;
+  animateIn?: boolean;
 }) {
+  const trigger = useRef<any>(null);
   const text = useRef<HTMLSpanElement>(null);
   const timelineOver = useRef<any>(null);
   const timelineUnder = useRef<any>(null);
@@ -54,6 +57,48 @@ export default function Button(props: {
         stagger: 0.02,
         ease: "power2.out",
       });
+  });
+
+  useGSAP(() => {
+    if (!props.animateIn) return;
+    if (!text.current) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const textOver = text.current.querySelectorAll("#buttonTextOver");
+    const textUnder = text.current.querySelectorAll("#buttonTextUnder");
+
+    gsap.fromTo(
+      textOver,
+      { y: "110%" },
+      {
+        y: 0,
+        duration: 1,
+        stagger: 0.02,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: trigger.current,
+          start: "top bottom",
+          toggleActions: "play none none reset",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      textUnder,
+      { y: "110%" },
+      {
+        y: 0,
+        duration: 1,
+        stagger: 0.02,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: trigger.current,
+          start: "top bottom",
+          toggleActions: "play none none reset",
+        },
+      }
+    );
   });
 
   const onHover = () => {
@@ -114,6 +159,7 @@ export default function Button(props: {
 
   return props.href ? (
     <Link
+      ref={trigger}
       href={props.href}
       onClick={props.onClick}
       onMouseEnter={onHover}
@@ -125,6 +171,7 @@ export default function Button(props: {
     </Link>
   ) : (
     <button
+      ref={trigger}
       type="button"
       onClick={props.onClick}
       onMouseEnter={onHover}
