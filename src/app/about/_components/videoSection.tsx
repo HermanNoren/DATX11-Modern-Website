@@ -51,8 +51,8 @@ export default function VideoSection() {
       </p>
 
       {/* Video Container */}
-      <div className="relative w-[895px] h-[465px] rounded-2xl overflow-hidden shadow-lg">
-        <video className="w-full h-full object-cover rounded-2xl" autoPlay loop muted playsInline>
+      <div className="relative w-[895px] h-[465px]  overflow-hidden shadow-lg">
+        <video className="w-full h-full object-cover " autoPlay loop muted playsInline>
           <source src="/videos/20250303_1409_Minimalist_Industrial_Cubes_simple_compose_01jne20zrcf32bpk4cja2m2x7e.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
