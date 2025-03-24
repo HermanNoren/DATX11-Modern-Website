@@ -13,10 +13,10 @@ export default function TransitionLink(props: {
     document.documentElement.animate(
       [
         {
-          transform: "translateX(0)",
+          transform: "translateY(0)",
         },
         {
-          transform: "translateX(10em)",
+          transform: "translateY(-10em)",
         },
       ],
       {
@@ -30,10 +30,10 @@ export default function TransitionLink(props: {
     document.documentElement.animate(
       [
         {
-          clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)",
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
         },
         {
-          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         },
       ],
       {
