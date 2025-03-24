@@ -39,17 +39,20 @@ export default function VideoSection() {
   }, []);
 
   return (
-    <div className="relative flex items-center justify-center w-full max-w-screen-lg mx-auto my-15">
+    <div className="relative grid grid-cols-[1fr_895px_1fr] w-full my-15 gap-4">
       {/* Left side text with staggered reveal effect */}
-      <p
-        ref={leftTextRef}
-        className="absolute left-[-200px] top-0 text-right text-base md:text-lg lg:text-xs max-w-[250px] leading-relaxed hidden xl:block"
-      >
-        <MaskText
-          stagger={0.002}
-          phrase="OUR TEAM IS OBSESSED WITH MINIMALISM, SYMMETRY, AND MATERIAL INNOVATION—PUSHING THE BOUNDARIES OF DESIGN TO DELIVER PIECES THAT EMBODY SOPHISTICATION AND EXCLUSIVITY."
-        />
-      </p>
+      <div className="w-full flex justify-end">
+        <p
+          ref={leftTextRef}
+          className="relative text-end text-base md:text-lg lg:text-xs w-[12em] leading-relaxed hidden xl:block"
+        >
+          <MaskText
+            stagger={0.002}
+            delay={0.7}
+            phrase="OUR TEAM IS OBSESSED WITH MINIMALISM, SYMMETRY, AND MATERIAL INNOVATION—PUSHING THE BOUNDARIES OF DESIGN TO DELIVER PIECES THAT EMBODY SOPHISTICATION AND EXCLUSIVITY."
+          />
+        </p>
+      </div>
 
       {/* Video Container */}
       <div className="relative w-[895px] h-[465px]  overflow-hidden shadow-lg">
@@ -58,15 +61,18 @@ export default function VideoSection() {
       </div>
 
       {/* Right side text with staggered reveal effect */}
-      <p
-        ref={rightTextRef}
-        className="absolute right-[-200px] bottom-0 text-left text-base md:text-lg lg:text-xs max-w-[250px] leading-relaxed hidden xl:block"
-      >
-        <MaskText
-          stagger={0.002}
-          phrase="TO REFLECT ITS EXCEPTIONAL CRAFTSMANSHIP, EACH DECUBE ARRIVES IN BESPOKE PACKAGING WITH A CERTIFICATE OF AUTHENTICITY—A MARK OF ITS RARITY AND PRESTIGE."
-        />
-      </p>
+      <div className="w-full flex items-end">
+        <p
+          ref={rightTextRef}
+          className="relative md:text-lg lg:text-xs w-[11em] leading-relaxed hidden xl:block"
+        >
+          <MaskText
+            stagger={0.002}
+            delay={0.7}
+            phrase="TO REFLECT ITS EXCEPTIONAL CRAFTSMANSHIP, EACH DECUBE ARRIVES IN BESPOKE PACKAGING WITH A CERTIFICATE OF AUTHENTICITY—A MARK OF ITS RARITY AND PRESTIGE."
+          />
+        </p>
+      </div>
     </div>
   );
 }
