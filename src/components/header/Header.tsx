@@ -45,7 +45,7 @@ export default function Header() {
     },
     {
       name: "Cart",
-      href: "/cart",
+      href: "/cartpage",
     },
   ];
 
