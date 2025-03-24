@@ -80,7 +80,7 @@ export default function AstroCubeRepel() {
         {/* Grid of Astrolight Cubes */}
         <div
           ref={gridRef}
-          className="grid grid-cols-10 grid-rows-10 gap-2 z-10 bg-transparent"
+          className="grid grid-cols-10 grid-rows-10 gap-2 z-10 bg-transparent pointer-events-none select-none"
         >
           {Array.from({ length: 100 }).map((_, index) => (
             <div
