@@ -56,9 +56,12 @@ export default function Video() {
   return (
     <div
       ref={stickyVideoContainer}
-      className="absolute bottom-0 left-0 w-screen h-[200lvh] z-30"
+      className="absolute bottom-0 left-0 w-screen h-[200lvh] z-30 pointer-events-none select-none"
     >
-      <div ref={videoContainer} className="sticky inset-0 w-screen h-lvh">
+      <div
+        ref={videoContainer}
+        className="sticky inset-0 w-screen h-lvh pointer-events-auto select-auto"
+      >
         <div ref={video} className="relative h-full overflow-hidden">
           <video
             className="relative w-full h-full object-cover"

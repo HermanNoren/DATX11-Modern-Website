@@ -59,7 +59,16 @@ export default function SideScrollVideo() {
 
           <div className="absolute w-screen h-screen top-0 left-[27%] p-[var(--container-padding)]">
             <div className="relative w-full h-full bg-neutral-600">
-              <Image src={cubes} alt="" className="w-full h-full" />
+              <video
+                className="relative w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src="/videos/three_sizes.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import ParallaxImage from "@/components/ParallaxImage";
 export default function CubeInfo() {
   const cubeLangs = "CUBE/KUB/CUBO/KUUTIO/立方体";
   return (
-    <section className="relative w-screen my-24">
+    <section className="relative w-screen my-[35em]">
       <div className="relative container is-md h-[96.1em]">
         <div className="absolute right-36">
           <div className="relative w-96 aspect-[1/1.5]">
@@ -37,7 +37,7 @@ export default function CubeInfo() {
             <span className="">{cubeLangs}</span>
           </div>
         </div>
-        <p className="absolute top-36 left-12 w-[26.1em] text-xl z-20 text-end font-normal">
+        <p className="absolute top-36 left-12 w-[26.1em] text-xl z-20 text-end">
           <MaskText
             stagger={0.005}
             phrase="A MASTERPIECE OF PRECISION, FORGED FROM ASTROLITE—A MATERIAL RARER
@@ -45,7 +45,7 @@ export default function CubeInfo() {
           />
         </p>
 
-        <p className="absolute top-16 right-12 w-[26.1em] text-xl z-20 font-normal">
+        <p className="absolute top-16 right-12 w-[26.1em] text-xl z-20">
           <MaskText
             stagger={0.005}
             phrase="EACH CUBE IS A STATEMENT OF POWER AND PRESTIGE, AVAILABLE IN THREE
@@ -53,7 +53,7 @@ export default function CubeInfo() {
           />
         </p>
 
-        <p className="absolute top-[50em] left-12 w-[26.1em] text-xl z-20 text-end font-normal">
+        <p className="absolute top-[50em] left-12 w-[26.1em] text-xl z-20 text-end">
           <MaskText
             stagger={0.005}
             phrase="DELIVERED IN METICULOUSLY CRAFTED LUXURY PACKAGING, COMPLETE WITH A
@@ -61,7 +61,7 @@ export default function CubeInfo() {
           />
         </p>
 
-        <p className="absolute top-[36em] right-12 w-[26.1em] text-xl z-20 font-normal">
+        <p className="absolute top-[36em] right-12 w-[26.1em] text-xl z-20">
           <MaskText
             stagger={0.005}
             phrase="deCUBE REDEFINES LUXURY, BLURRING THE LINE BETWEEN ART AND

@@ -6,11 +6,11 @@ import cubeGif2 from "@/imgs/gifs/cube2.gif";
 export default function Slogan() {
   const cubeLangs = "CUBE/KUB/CUBO/KUUTIO/立方体";
   return (
-    <section className="relative py-24 z-0">
+    <section className="relative pt-48 z-0">
       <div className="relative container grid grid-rows-2 gap-4">
         <div className="grid grid-cols-12 w-full gap-4">
-          <h2 className="leading-[1] col-span-5 font-normal">
-            <MaskText phrase="deCube" fontSize="text-[10em]" stagger={0.02} />
+          <h2 className="text-[10em] leading-[1em] col-span-5 font-normal">
+            <MaskText phrase="deCube" stagger={0.02} />
           </h2>
           <div className="w-full h-full col-span-2 overflow-hidden">
             <ParallaxImage src={cubeGif1} alt="" factor={0.04} />

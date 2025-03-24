@@ -50,6 +50,8 @@ export default function MaskText(
     <span ref={trigger} className="relative">
       {words.map((word, i) => {
         const chars = word.split("");
+        console.log(words.length);
+        console.log(i);
 
         return (
           <span
@@ -61,9 +63,10 @@ export default function MaskText(
           >
             <span
               className={cn(
-                "mr-1 relative inline-flex",
+                "relative inline-flex",
                 props.fontSize,
-                hWords?.includes(word) ? props.highlightColor : ""
+                hWords?.includes(word) ? props.highlightColor : "",
+                words.length === i + 1 ? "" : "mr-1"
               )}
             >
               {chars.map((char, i) => {
