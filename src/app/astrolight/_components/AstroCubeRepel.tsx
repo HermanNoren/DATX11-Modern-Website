@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import VelocityScroll from "@/components/VelocityScroll";
 
 export default function AstroCubeRepel() {
   const gridRef = useRef<HTMLDivElement>(null);
@@ -16,8 +17,8 @@ export default function AstroCubeRepel() {
       cubes.forEach((cube) => {
         const el = cube as HTMLElement;
         const rect = el.getBoundingClientRect();
-        const dx = (rect.left + rect.width / 2) - e.clientX;
-        const dy = (rect.top + rect.height / 2) - e.clientY;
+        const dx = rect.left + rect.width / 2 - e.clientX;
+        const dy = rect.top + rect.height / 2 - e.clientY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         const force = Math.max((maxDistance - distance) / maxDistance, 0);
@@ -67,13 +68,17 @@ export default function AstroCubeRepel() {
         {/* Background Text */}
         <div className="absolute inset-0 flex flex-col justify-center opacity-10 text-[var(--color-foreground)] pointer-events-none overflow-visible z-0 bg-transparent">
           <span className="text-[24vw] font-bold leading-none tracking-tight whitespace-nowrap text-left">
-            PERFECTION
+            <VelocityScroll baseVelocity={-1} className="mr-[0.2em]">
+              PERFECTION -
+            </VelocityScroll>
           </span>
           <span className="text-[24vw] font-bold leading-none tracking-tight whitespace-nowrap text-center">
-            PERFECTION
+            <VelocityScroll className="mr-[0.2em]">PERFECTION -</VelocityScroll>
           </span>
           <span className="text-[24vw] font-bold leading-none tracking-tight whitespace-nowrap text-right">
-            PERFECTION
+            <VelocityScroll baseVelocity={-1} className="mr-[0.2em]">
+              PERFECTION -
+            </VelocityScroll>
           </span>
         </div>
 

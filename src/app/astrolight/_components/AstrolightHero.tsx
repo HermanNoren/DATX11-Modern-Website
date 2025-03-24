@@ -36,7 +36,7 @@ export default function AstrolightHero() {
       <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
 
       {/* Animated Text */}
-      <div className="absolute inset-0 flex flex-col items-start justify-end text-white text-center px-4">
+      <div className="container absolute inset-0 flex flex-col items-start justify-end text-white text-center px-4">
         <h1
           ref={textRef}
           className="text-5xl md:text-[12em] font-light tracking-wide"
@@ -47,4 +47,3 @@ export default function AstrolightHero() {
     </div>
   );
 }
-

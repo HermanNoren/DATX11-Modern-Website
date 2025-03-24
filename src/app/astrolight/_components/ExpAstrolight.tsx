@@ -15,7 +15,7 @@ export default function ExpAstrolight() {
   }, []);
 
   return (
-    <div className="flex flex-col items-end text-right text-gray-900 py-15 pr-10 md:pr-60">
+    <div className="container is-sm flex flex-col items-end text-right text-gray-900 py-15">
       {/* EXPERIENCE (video) THE */}
       <div
         ref={textRef}
