@@ -50,8 +50,6 @@ export default function MaskText(
     <span ref={trigger} className="relative">
       {words.map((word, i) => {
         const chars = word.split("");
-        console.log(words.length);
-        console.log(i);
 
         return (
           <span

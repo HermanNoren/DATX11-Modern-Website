@@ -3,6 +3,7 @@ import kaffe from "@/imgs/png/kaffe.png";
 import stol from "@/imgs/png/stol.png";
 import stol_fonster from "@/imgs/png/stol_fonster.png";
 import ParallaxImage from "@/components/ParallaxImage";
+import ClipPathReveal from "@/components/ClipPathReveal";
 
 export default function CubeInfo() {
   const cubeLangs = "CUBE/KUB/CUBO/KUUTIO/立方体";
@@ -11,7 +12,9 @@ export default function CubeInfo() {
       <div className="relative container is-md h-[96.1em]">
         <div className="absolute right-36">
           <div className="relative w-96 aspect-[1/1.5]">
-            <ParallaxImage src={stol} alt="" />
+            <ClipPathReveal duration={2.5}>
+              <ParallaxImage src={stol} alt="" />
+            </ClipPathReveal>
           </div>
 
           <div className="rotate-z-90 rotate-x-180 rotate-y-180 origin-top-left absolute right-[-15.5em]">
@@ -20,7 +23,9 @@ export default function CubeInfo() {
         </div>
         <div className="absolute left-4 top-72 z-0">
           <div className="relative w-96 aspect-[1/1.5]">
-            <ParallaxImage src={stol_fonster} alt="" />
+            <ClipPathReveal duration={2.5}>
+              <ParallaxImage src={stol_fonster} alt="" />
+            </ClipPathReveal>
           </div>
 
           <div className="rotate-z-90 rotate-x-180 rotate-y-180 origin-top-left absolute right-[-15.5em]">
@@ -30,7 +35,9 @@ export default function CubeInfo() {
 
         <div className="absolute left-72 top-[60em] z-0">
           <div className="relative w-96 aspect-[1/1.5]">
-            <ParallaxImage src={kaffe} alt="" />
+            <ClipPathReveal duration={2.5}>
+              <ParallaxImage src={kaffe} alt="" />
+            </ClipPathReveal>
           </div>
 
           <div className="rotate-z-90 rotate-x-180 rotate-y-180 origin-top-left absolute right-[-15.5em]">
