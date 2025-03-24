@@ -50,7 +50,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed w-full top-0 left-0 z-[99]">
+    <header className="absolute w-full top-0 left-0 z-[99]">
       <nav className="w-full container is-full pt-[var(--container-padding)] flex justify-between text-xl">
         <Button
           href="/"

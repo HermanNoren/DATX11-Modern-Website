@@ -5,6 +5,7 @@ import { ReactLenis } from "@/utils/lenis";
 import Header from "@/components/header/Header";
 import { ViewTransitions } from "next-view-transitions";
 import Providers from "./Providers";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const rhd = Red_Hat_Display({
   subsets: ["latin"],
@@ -25,8 +26,9 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en">
         <ReactLenis root>
-          <body className={`${rhd.className} antialiased`}>
+          <body className={`${rhd.className} relative antialiased`}>
             <Header />
+            <ScrollToTop />
             <Providers>{children}</Providers>
           </body>
         </ReactLenis>
