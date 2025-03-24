@@ -16,6 +16,7 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { cn } from "@/utils/cn";
 import TransitionLink from "./TransitionLink";
+import VelocityScroll from "../VelocityScroll";
 
 type link = {
   name: string;
@@ -41,6 +42,10 @@ export default function Header() {
     {
       name: "Astrolight",
       href: "/astrolight",
+    },
+    {
+      name: "Cart",
+      href: "/cart",
     },
   ];
 
@@ -72,28 +77,28 @@ export default function Header() {
 
 const menuClipPath = {
   initial: {
-    clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
   },
   enter: {
-    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] },
   },
   exit: {
-    clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
     transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] },
   },
 };
 
 const menuMoveContent = {
   initial: {
-    x: "10em",
+    y: "-10em",
   },
   enter: {
-    x: "0",
+    y: "0",
     transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] },
   },
   exit: {
-    x: "10em",
+    y: "-10em",
     transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] },
   },
 };
@@ -124,7 +129,7 @@ function FullScreenMenu(props: {
   function onClick() {
     props.setIsActive(false);
     gsap.to(menu.current, {
-      clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
       duration: 0.3,
     });
   }
@@ -163,6 +168,11 @@ function FullScreenMenu(props: {
       className="absolute inset-0 w-screen h-lvh z-[99] bg-neutral-200"
     >
       {isAnimating ? <div className="absolute inset-0 z-[100]"></div> : null}
+      <div className="absolute left-[-142.5em] rotate-[-90deg] top-0 pointer-events-none">
+        <VelocityScroll className="text-4xl">
+          CUBE/KUB/CUBO/KUUTIO/立方体/CUBE/KUB/CUBO/KUUTIO/立方体/
+        </VelocityScroll>
+      </div>
       <motion.div
         variants={menuMoveContent}
         initial="initial"
@@ -170,9 +180,6 @@ function FullScreenMenu(props: {
         exit="exit"
         className="w-full h-full"
       >
-        <span className="absolute text-4xl rotate-z-270 origin-top-left bottom-[-1em]">
-          {cubeLangs}/{cubeLangs}
-        </span>
         <nav className="relative w-full h-full grid place-items-center">
           <ul className="flex flex-col gap-1 uppercase">
             {props.links.map((link, i) => {
