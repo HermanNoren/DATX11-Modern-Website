@@ -65,10 +65,10 @@ export default function AstrolightInfo() {
   }, []);
 
   return (
-    <section className="container py-[var(--section-padding)] flex flex-col md:flex-row justify-center items-start gap-[calc(var(--gap)*10)] mx-auto">
+    <section className="container is-sm grid grid-cols-1 grid-rows-2 md:grid-rows-1 md:grid-cols-2 py-[var(--section-padding)]">
       {/* Left Side - Animated Text Content */}
       <div
-        className="w-full md:w-1/4 text-left text-[var(--color-foreground)]"
+        className="md:w-80 text-left text-[var(--color-foreground)] flex flex-col gap-4"
         ref={textRef}
       >
         <p className="text-[var(--text-lg)] leading-[var(--text-lg--line-height)] word-animation">
@@ -92,8 +92,8 @@ export default function AstrolightInfo() {
       </div>
 
       {/* Right Side - Magnetic Image */}
-      <div className="w-full max-w-sm md:max-w-md flex justify-end">
-        <div ref={imageRef} className="relative w-full h-auto overflow-hidden">
+      <div className="flex justify-center">
+        <div ref={imageRef} className="relative size-96 overflow-hidden">
           <img
             src="/astrolight 3d.png"
             alt="Astrolight metal"

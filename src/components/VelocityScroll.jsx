@@ -15,7 +15,7 @@ import { wrap } from "@motionone/utils";
 function VelocityScroll({
   children,
   baseVelocity = 1,
-  className,
+  className = "",
   wrapperClassName = "",
 }) {
   const baseX = useMotionValue(0);
