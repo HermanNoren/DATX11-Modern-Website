@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./_components/ProductHero";
 import ProductSection from "./_components/ProductSection";
+import Footer from "@/components/footer/ProductsFooter";
 
 const ProductPage: React.FC = () => {
   const products = [
@@ -27,12 +28,12 @@ const ProductPage: React.FC = () => {
   return (
     <div className="relative w-full max-w-[1920px] mx-auto">
       <Header />
-      {products.map((product) => (
-        <ProductSection
+      {products.map((product) => (<ProductSection
           key={product.name}
           {...product}
         />
       ))}
+      <Footer />
     </div>
   );
 };
