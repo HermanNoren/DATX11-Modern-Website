@@ -211,7 +211,7 @@ export default function ScrollToTop() {
       ref={scrollUp}
       className="fixed bottom-[var(--container-padding)] right-[var(--container-padding)] z-50"
     >
-      <div className="absolute w-full aspect-square">
+      <div className="absolute w-full aspect-square opacity-50">
         <div
           ref={borderTop}
           className="absolute top-0 left-0 w-full h-[1px] bg-foreground [clip-path:polygon(0%_0%,_0%_0%,_0%_100%,_0%_100%)]"
@@ -229,13 +229,13 @@ export default function ScrollToTop() {
           className="absolute top-0 left-0 w-[1px] h-full bg-foreground [clip-path:polygon(0%_100%,_100%_100%,_100%_100%,_0%_100%)]"
         ></div>
       </div>
-      <div className="flex overflow-hidden">
+      <div className="flex overflow-hidden text-foreground opacity-70">
         <button
           onClick={onClick}
           ref={button}
           className="cursor-pointer translate-y-[105%]"
         >
-          <ArrowUp strokeWidth={1} className="size-7" />
+          <ArrowUp strokeWidth={0.75} className="size-7" />
         </button>
       </div>
     </a>
