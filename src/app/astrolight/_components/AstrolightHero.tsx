@@ -1,8 +1,8 @@
-/* astrolight hero*/
 "use client";
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import ParallaxVideo from "@/components/ParallaxVideo";
 
 export default function AstrolightHero() {
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -17,23 +17,11 @@ export default function AstrolightHero() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source
-          src="/videos/20250305_1934_Liquid_Steel_Sphere_simple_compose_01jnksddjdf51tj6ac4mdp2erg.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
+      {/* Parallax Video Wrapper */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <ParallaxVideo src="/videos/20250305_1934_Liquid_Steel_Sphere_simple_compose_01jnksddjdf51tj6ac4mdp2erg.mp4" />
+        <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
+      </div>
 
       {/* Animated Text */}
       <div className="container absolute inset-0 flex flex-col items-start justify-end text-white text-center px-4">
