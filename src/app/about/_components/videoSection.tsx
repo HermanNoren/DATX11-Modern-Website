@@ -4,7 +4,8 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import MaskText from "@/components/MaskText";
-import ParallaxVideo from "@/components/ParallaxVideo" 
+import ParallaxVideo from "@/components/ParallaxVideo";
+import ClipPathReveal from "@/components/ClipPathReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,9 +56,10 @@ export default function VideoSection() {
       </div>
 
       {/* Video Container */}
-      <div className="relative w-[895px] h-[465px]  overflow-hidden shadow-lg">
-        <ParallaxVideo src="/videos/20250303_1409_Minimalist_Industrial_Cubes_simple_compose_01jne20zrcf32bpk4cja2m2x7e.mp4"/> 
-    
+      <div className="relative w-[895px] h-[465px]  overflow-hidden">
+        <ClipPathReveal delay={0.4}>
+          <ParallaxVideo src="/videos/20250303_1409_Minimalist_Industrial_Cubes_simple_compose_01jne20zrcf32bpk4cja2m2x7e.mp4" />
+        </ClipPathReveal>
       </div>
 
       {/* Right side text with staggered reveal effect */}

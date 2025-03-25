@@ -60,7 +60,7 @@ const CheckoutPage: React.FC = () => {
   );
 
   return (
-    <div className="checkout-page">
+    <div className="checkout-page border">
       <div className="shopping-cart">
         <div className="checkout-header">
           <h2 className="checkout-bag">

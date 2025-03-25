@@ -45,7 +45,7 @@ export default function CTA() {
       <div className="w-full h-full grid place-items-center">
         <TransitionLink
           className="flex relative w-fit cursor-pointer"
-          href="/products"
+          href="/ProductPage"
         >
           {letters.map((letter, i) => {
             return (

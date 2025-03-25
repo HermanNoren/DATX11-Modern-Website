@@ -11,7 +11,7 @@ import Footer from "@/components/footer/Footer";
 
 export default function AboutPage() {
   return (
-    <section>
+    <section className="relative">
       <AboutTitle />
       <VideoSection />
       <ScrollRevealText />

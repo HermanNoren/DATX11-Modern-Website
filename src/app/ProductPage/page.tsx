@@ -32,15 +32,17 @@ const ProductPage: React.FC = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-screen-2xl mx-auto overflow-x-hidden min-w-[320px]">
-      <div className="pt-40">
-        <Header />
+    <>
+      <div className="relative w-full max-w-screen-2xl mx-auto overflow-x-hidden min-w-[320px] gradient-bg z-20">
+        <div className="pt-40">
+          <Header />
+        </div>
+        {products.map((product) => (
+          <ProductSection key={product.id} {...product} />
+        ))}
       </div>
-      {products.map((product) => (
-        <ProductSection key={product.id} {...product} />
-      ))}
       <Footer />
-    </div>
+    </>
   );
 };
 

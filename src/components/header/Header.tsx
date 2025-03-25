@@ -52,11 +52,13 @@ export default function Header() {
   return (
     <header className="absolute w-full top-0 left-0 z-[99]">
       <nav className="w-full container is-full pt-[var(--container-padding)] flex justify-between text-xl">
-        <Button
-          href="/"
-          text="deCube"
-          icon={<Boxes strokeWidth={1} className="size-6" />}
-        />
+        <TransitionLink href="/">
+          <Button
+            text="deCube"
+            icon={<Boxes strokeWidth={1} className="size-6" />}
+          />
+        </TransitionLink>
+
         <BurgerMenu
           onClick={() => setIsActive(!isActive)}
           isActive={isActive}

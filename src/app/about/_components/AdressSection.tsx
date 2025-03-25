@@ -4,7 +4,7 @@ import CubeScene from "@/app/_components/ScrollCubeSection/CubeScene";
 
 export default function ContactSection() {
   return (
-    <section className="relative z-20 w-screen h-screen bg-white">
+    <section className="relative z-20 w-screen h-screen gradient-bg">
       <div className="container w-full h-full grid place-items-center">
         <div className="flex flex-col justify-between h-[30em]">
           <h2 className="text-7xl text-center z-0">

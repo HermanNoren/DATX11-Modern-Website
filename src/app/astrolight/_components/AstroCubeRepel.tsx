@@ -63,7 +63,7 @@ export default function AstroCubeRepel() {
   }, []);
 
   return (
-    <section className="relative w-full isolate overflow-visible bg-white z-20">
+    <section className="relative w-full isolate overflow-visible gradient-bg z-20">
       <div className="flex flex-col items-center justify-center min-h-[150vh] py-[var(--section-padding)] px-4 sm:px-6 lg:px-8 bg-transparent">
         {/* Background Text */}
         <div className="absolute inset-0 flex flex-col justify-center opacity-10 text-[var(--color-foreground)] pointer-events-none overflow-visible z-0 bg-transparent">

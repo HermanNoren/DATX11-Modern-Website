@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import MaskText from "@/components/MaskText";
 import { useCart } from "../../cartpage/_components/cartlogic";
+import ParallaxImage from "@/components/ParallaxImage";
+import ClipPathReveal from "@/components/ClipPathReveal";
 
 interface ProductSectionProps {
   id: string;
@@ -124,7 +126,17 @@ const ProductSection: React.FC<ProductSectionProps> = ({
         )}
       </div>
       <div className="flex-1 flex justify-center">
-        <img src={`/${name}.gif`} alt="Product" className="w-4/5 h-auto" />
+        <div className="w-4/5 h-auto">
+          <ClipPathReveal>
+            <ParallaxImage
+              src={`/${name}.gif`}
+              alt="Product"
+              width={500}
+              height={500}
+              factor={0.1}
+            />
+          </ClipPathReveal>
+        </div>
       </div>
       <div className="flex-1 text-[#404040] flex justify-end">
         <p className="text-right w-3/5">

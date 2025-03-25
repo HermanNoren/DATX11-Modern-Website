@@ -140,7 +140,7 @@ export default function LoadingScreen({ onFinish }: { onFinish: () => void }) {
 
     setIsClicked(true);
     setExit(true);
-    setTimeout(onFinish, 1000);
+    onFinish();
   }
 
   return (

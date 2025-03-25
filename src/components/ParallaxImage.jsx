@@ -9,6 +9,8 @@ const lerp = (start, end, factor) => start + (end - start) * factor;
 export default function ParallaxImage({
   src,
   alt,
+  width = 0,
+  height = 0,
   id = "",
   absolute = false,
   factor = 0.2,
@@ -80,6 +82,8 @@ export default function ParallaxImage({
         ref={imageRef}
         src={src}
         alt={alt}
+        width={width}
+        height={height}
         style={{
           willChange: "transform",
           transform: "translateY(0) scale(1.25)",
