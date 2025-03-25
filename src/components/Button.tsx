@@ -11,6 +11,7 @@ export default function Button(props: {
   text: string;
   className?: string;
   href?: string;
+  target?: string;
   onClick?: () => void;
   dark?: boolean;
   icon?: React.ReactNode;
@@ -161,6 +162,7 @@ export default function Button(props: {
     <Link
       ref={trigger}
       href={props.href}
+      target={props.target}
       onClick={props.onClick}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}

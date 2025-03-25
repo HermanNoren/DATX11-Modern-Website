@@ -25,15 +25,20 @@ export default function CTAdeCart() {
   const links = [
     {
       name: "Instagram",
+      href: "https://www.instagram.com/deecubee/",
+      target: "_blank",
     },
     {
       name: "Facebook",
+      href: "https://www.facebook.com/",
     },
     {
       name: "LinkedIn",
+      href: "https://www.linkedin.com/",
     },
     {
       name: "Spotify",
+      href: "https://www.spotify.com/",
     },
   ];
 
@@ -72,7 +77,12 @@ export default function CTAdeCart() {
             {links.map((link, i) => {
               return (
                 <li key={i}>
-                  <Button text={link.name} className="uppercase" />
+                  <Button
+                    href={link.href}
+                    target="_blank"
+                    text={link.name}
+                    className="uppercase"
+                  />
                 </li>
               );
             })}
