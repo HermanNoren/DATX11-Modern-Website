@@ -9,27 +9,23 @@ export default function ImageSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    // Store the section element in a variable to prevent cleanup issues
     const sectionElement = sectionRef.current;
 
-    // Function to handle cursor movement and update image positions
     const handleMouseMove = (e: MouseEvent) => {
       if (!sectionElement) return;
 
-      // Calculate cursor position relative to the section
       const { clientX, clientY } = e;
       const { width, height, left, top } = sectionElement.getBoundingClientRect();
       const x = (clientX - (left + width / 2)) / width;
       const y = (clientY - (top + height / 2)) / height;
 
-      // Apply GSAP animations to move images based on cursor position
       requestAnimationFrame(() => {
         imageRefs.current.forEach((img, index) => {
           if (img) {
             gsap.to(img, {
-              x: x * (index % 2 === 0 ? 25 : -25), // Alternate movement directions
+              x: x * (index % 2 === 0 ? 25 : -25),
               y: y * (index % 2 === 0 ? 25 : -25),
-              duration: 0.5, // Smooth transition for responsive effect
+              duration: 0.5,
               ease: "power2.out",
             });
           }
@@ -37,10 +33,8 @@ export default function ImageSection() {
       });
     };
 
-    // Attach the event listener to track mouse movement inside the section
     sectionElement?.addEventListener("mousemove", handleMouseMove);
 
-    // Cleanup function to remove event listener when the component unmounts
     return () => {
       sectionElement?.removeEventListener("mousemove", handleMouseMove);
     };
@@ -49,7 +43,7 @@ export default function ImageSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full flex justify-center pt-[calc(var(--section-padding)*1.8)] pb-[calc(var(--section-padding)*2.5)] overflow-visible"
+      className="relative w-full flex justify-center pt-[calc(var(--section-padding)*2)] pb-[calc(var(--section-padding)*6)] overflow-visible"
     >
       {/* Full-width Colored Background Box */}
       <div className="absolute left-0 right-0 w-full bg-[#95614E] rounded-[24px] py-[calc(var(--section-padding)*2)] px-[var(--container-padding)] flex justify-center overflow-visible z-10">

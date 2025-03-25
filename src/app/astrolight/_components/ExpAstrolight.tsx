@@ -15,7 +15,7 @@ export default function ExpAstrolight() {
   }, []);
 
   return (
-    <div className="flex flex-col items-end text-right text-gray-900 py-15 pr-10 md:pr-60">
+    <div className="container is-sm flex flex-col items-end text-right text-gray-900 py-15">
       {/* EXPERIENCE (video) THE */}
       <div
         ref={textRef}
@@ -23,7 +23,7 @@ export default function ExpAstrolight() {
       >
         <span>EXPERIENCE</span>
         {/* Small Video Box */}
-        <div className="w-[2em] h-[0.5em] md:w-[1.2em] md:h-[0.8em] rounded-xl shadow-md overflow-hidden flex items-center">
+        <div className="w-[2em] h-[0.5em] md:w-[1.2em] md:h-[0.8em] shadow-md overflow-hidden flex items-center">
           <video
             className="w-full h-full object-cover"
             autoPlay
