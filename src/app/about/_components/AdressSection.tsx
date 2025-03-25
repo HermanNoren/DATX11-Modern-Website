@@ -1,27 +1,44 @@
-import Image from "next/image";
+"use client";
 
-export default function AdressSection() {
+import CubeScene from "@/app/_components/ScrollCubeSection/CubeScene";
+
+export default function ContactSection() {
   return (
-    <section className="w-screen bg-[#95614E] text-white py- flex justify-center z-10 relative">
-      <div className="w-full max-w-[1200px] bg-[#95614E] rounded-[24px] py-16 px-8 flex flex-col items-center text-center">
-        {/* GIF centered at the top */}
-        <div className="mb-6">
-          <Image
-            src="/aboutGIF.gif"
-            alt="About GIF"
-            width={120}
-            height={120}
-            className="rounded-md mx-auto"
-          />
+    <section className="relative z-20 w-screen h-screen bg-white">
+      <div className="container w-full h-full grid place-items-center">
+        <div className="flex flex-col justify-between h-[30em]">
+          <h2 className="text-7xl text-center z-0">
+            ANY <br /> QUESTIONS?
+          </h2>
+          <h2 className="text-7xl font-light z-20 relative pb-6">CONTACT US</h2>
         </div>
-
-        {/* Address text block */}
-        <div className="text-lg leading-relaxed max-w-[600px] mx-auto space-y-2">
-          <p className="font-semibold text-xl">Address:</p>
-          <p>deCube Street, Gothenburg, Sweden</p>
-          <p>+46 123 456 789</p>
-          <p>decube@decube.com</p>
-          <p>Worldwide shipping and no returns.</p>
+        <div className="absolute w-full h-full z-10">
+          <CubeScene cubeSize={1} />
+        </div>
+      </div>
+      <div className="absolute top-0 left-0 w-full h-full container grid grid-cols-1 grid-rows-2 gap-36">
+        <div className="w-full h-full flex justify-between items-end">
+          <div className="w-fit h-fit rotate-[-90deg] origin-top-left">
+            <p className="">CONTACT@DECUBE.COM</p>
+          </div>
+          <div className="w-fit h-fit rotate-[90deg] origin-top-right ">
+            <p className="">
+              DECUBE STREET,
+              <br />
+              GOTHENBURG, SWEDEN
+            </p>
+          </div>
+        </div>
+        <div className="w-full h-full flex justify-between">
+          <div className="w-fit h-fit rotate-[-90deg] origin-top-left">
+            <p className="translate-x-[-100%]">+46 123 456 789</p>
+          </div>
+          <div className="w-fit h-fit rotate-[90deg] origin-top-right ">
+            <p className="translate-x-[100%]">
+              WORLDWIDE SHIPPING &<br />
+              NO RETURNS
+            </p>
+          </div>
         </div>
       </div>
     </section>

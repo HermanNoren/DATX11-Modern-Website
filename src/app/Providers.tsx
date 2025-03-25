@@ -6,7 +6,7 @@ import Mouse from "@/components/Mouse";
 import { cn } from "@/utils/cn";
 
 export default function Providers(props: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <main
       className={cn(
