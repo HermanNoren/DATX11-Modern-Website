@@ -1,86 +1,66 @@
-import React from 'react';
+import React from "react";
 
 const Header: React.FC = () => {
   return (
-    <div
-      className="
-        relative
-        mx-auto
-        my-55
-        overflow-hidden
-        w-[1600px]
-        h-[600px]
-      "
-    >
-      {/* "The" heading */}
-      <h3
-        className="
-          absolute
-          top-0
-          left-[335px]
-          text-[160px]
-          text-[#404040]
-          leading-[0.9]
-          font-thin
-          m-0
-          p-0
-          whitespace-nowrap
-        "
+    <div className="relative mx-auto my-8 overflow-hidden w-full max-w-[1600px] min-h-[600px] px-4">
+      {/* "The" text */}
+      <h3 className="
+        absolute 
+        top-0 
+        left-[20%]
+        text-[clamp(80px,10vw,160px)]
+        text-[#404040]
+        leading-[0.9]
+        font-thin
+        m-0
+        p-0
+        whitespace-nowrap"
       >
         The
       </h3>
-
       {/* Paragraph */}
-      <p
-        className="
-          absolute
-          top-[65px]
-          left-[640px]
-          w-[560px]
-          text-[#404040]
-          font-light
-          leading-relaxed
-          m-0
-          p-0
-          text-[14px]
-        "
+      <p className="
+        absolute
+        top-[65px]
+        left-[40%]
+        w-[clamp(280px,35vw,560px)]
+        text-[#404040]
+        font-light
+        leading-relaxed
+        m-0
+        p-0
+        text-[14px]"
       >
-        Experience deCube—a revolutionary decorating cube crafted from Astrolite,
-        an exclusive material from the depths of space. With its sleek, modern
-        aesthetic and cutting-edge composition, deCube stands as a testament
-        to innovation and sophistication.
+        Experience deCube—a revolutionary decorating cube crafted from
+        Astrolite, an exclusive material from the depths of space. With its
+        sleek, modern aesthetic and cutting-edge composition, deCube stands as a
+        testament to innovation and sophistication.
       </p>
-
       {/* Product image */}
-      <div
-        className="
-          absolute
-          top-[150px]
-          left-[370px]
-          w-[235px]
-        "
+      <div className="
+        absolute
+        top-[150px]
+        left-[23%]
+        w-[clamp(180px,15vw,235px)]"
       >
         <img
           src="/product-gif.gif"
           alt="Product Demo"
-          className="w-full h-auto rounded-[15px]"
+          className="w-full h-auto"
         />
       </div>
-
-      {/* "Product" heading */}
-      <h3
-        className="
-          absolute
-          top-[150px]
-          left-[630px]
-          text-[160px]
-          text-[#404040]
-          leading-[0.9]
-          font-thin
-          m-0
-          p-0
-          whitespace-nowrap
-        "
+      {/* "Product" text */}
+      <h3 className="
+        absolute
+        top-[150px]
+        left-[40%]
+        text-[clamp(80px,10vw,160px)]
+        text-[#404040]
+        leading-[0.9]
+        font-thin
+        m-0
+        p-0
+        whitespace-nowrap"
       >
         Product
       </h3>

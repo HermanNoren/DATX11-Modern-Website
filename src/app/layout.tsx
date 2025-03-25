@@ -5,6 +5,7 @@ import { ReactLenis } from "@/utils/lenis";
 import Header from "@/components/header/Header";
 import { ViewTransitions } from "next-view-transitions";
 import Providers from "./Providers";
+import { CartProvider } from "./cartpage/_components/cartlogic";
 
 export const rhd = Red_Hat_Display({
   subsets: ["latin"],
@@ -27,7 +28,9 @@ export default function RootLayout({
         <ReactLenis root>
           <body className={`${rhd.className} antialiased`}>
             <Header />
-            <Providers>{children}</Providers>
+            <Providers>
+              <CartProvider>{children}</CartProvider>
+            </Providers>
           </body>
         </ReactLenis>
       </html>
