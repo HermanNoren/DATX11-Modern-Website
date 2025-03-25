@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import MaskText from "@/components/MastText";
+import MaskText from "@/components/MaskText";
 
 gsap.registerPlugin(ScrollTrigger);
 

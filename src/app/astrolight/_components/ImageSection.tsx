@@ -15,7 +15,8 @@ export default function ImageSection() {
       if (!sectionElement) return;
 
       const { clientX, clientY } = e;
-      const { width, height, left, top } = sectionElement.getBoundingClientRect();
+      const { width, height, left, top } =
+        sectionElement.getBoundingClientRect();
       const x = (clientX - (left + width / 2)) / width;
       const y = (clientY - (top + height / 2)) / height;
 
