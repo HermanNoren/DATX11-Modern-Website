@@ -6,7 +6,7 @@ import { cn } from "@/utils/cn";
 import SplashCursor from "@/components/SplashCursor";
 
 export default function Providers(props: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <main
       className={cn(

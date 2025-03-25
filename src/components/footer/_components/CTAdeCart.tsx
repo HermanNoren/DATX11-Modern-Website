@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Copyright } from "lucide-react";
 import Button from "@/components/Button";
 import TransitionLink from "@/components/header/TransitionLink";
+import Link from "next/link";
 
 export default function CTAdeCart() {
   const container = useRef(null);
@@ -43,9 +44,9 @@ export default function CTAdeCart() {
       className="relative h-[75vh] flex flex-col justify-between items-center container"
     >
       <div className="w-full h-full grid place-items-center">
-        <TransitionLink
+        <Link
           className="flex relative w-fit cursor-pointer"
-          href="/products"
+          href="/cartpage"
         >
           {letters.map((letter, i) => {
             return (
@@ -58,7 +59,7 @@ export default function CTAdeCart() {
               </motion.span>
             );
           })}
-        </TransitionLink>
+        </Link>
       </div>
       <div className="relative container w-full py-8">
         <div className="absolute top-0 left-0 w-full h-[1px] bg-foreground opacity-50"></div>

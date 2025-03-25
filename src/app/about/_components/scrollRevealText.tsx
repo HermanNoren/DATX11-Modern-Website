@@ -32,10 +32,10 @@ export default function ScrollRevealText() {
 
   return (
     <div
-      className="max-w-[60%] mx-auto text-center text-3xl leading-relaxed my-38 opacity-100 overflow-visible"
+      className="max-w-[70%] mx-auto text-center text-3xl my-38 opacity-100 overflow-visible"
       ref={textRef}
     >
-      <p className="inline-block">
+      <p className="inline-block uppercase">
         <MaskText
           stagger={0.002}
           highlightWords="deCube sleek, geometric precision. collective of cube enthusiasts, pure form and function."
