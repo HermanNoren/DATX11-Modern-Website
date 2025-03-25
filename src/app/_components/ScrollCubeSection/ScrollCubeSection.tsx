@@ -31,20 +31,12 @@ export default function ScrollCubeSection(props: {
   const [cubeSize, setCubeSize] = useState<availableCubeSizes>(1);
   const cubeSizeRef = useRef<availableCubeSizes>(1);
 
-  const sideBaseRef = useRef(0);
-  const downBaseRef = useRef(0);
-  const lastDirectionRef = useRef<"down" | "side" | "none">(null);
-  const sideScrollProgress = useRef<number>(0);
-
   const downScroll1 = useRef<HTMLDivElement>(null);
   const downScroll2 = useRef<HTMLDivElement>(null);
   const sideScroll = useRef<HTMLDivElement>(null);
 
   const isAnimatingCube = useRef<boolean>(false);
   const isFloating = useRef<boolean>(true);
-  const rotateDir = useRef<"down" | "side" | "none">("down");
-
-  const currentScroll = useRef<number>(0);
 
   const onClick = (size: availableCubeSizes) => {
     if (!cube.current) return;
@@ -105,10 +97,6 @@ export default function ScrollCubeSection(props: {
     });
   }
 
-  function sideScrollEnter() {
-    rotateDir.current = "side";
-  }
-
   function playInitialScaleAnimation() {
     console.log(cube.current);
     if (!cube.current) return;
@@ -124,47 +112,11 @@ export default function ScrollCubeSection(props: {
         x: cubeSizeRef.current,
         y: cubeSizeRef.current,
         z: cubeSizeRef.current,
-        duration: 1,
+        duration: 2,
+        delay: 0.5,
         ease: "power4.out",
       }
     );
-  }
-
-  useLenis(({ scroll }) => {
-    currentScroll.current = scroll;
-  });
-
-  function animate() {
-    if (
-      !cube.current ||
-      !scrollSectionContainer.current ||
-      !cubeGroup.current
-    ) {
-      requestAnimationFrame(animate);
-      return;
-    }
-
-    const pinnedHeight =
-      scrollSectionContainer.current.clientHeight - window.innerHeight;
-    const scrollProgress = Math.min(currentScroll.current / pinnedHeight, 1);
-
-    if (rotateDir.current === "down") {
-      //cube.current.rotation.x = scrollProgress * Math.PI * 3;
-    } else if (rotateDir.current === "side") {
-      // If we just switched to "side", record the current Y rotation:
-      if (lastDirectionRef.current !== "side") {
-        sideBaseRef.current = cube.current.rotation.y;
-        lastDirectionRef.current = "side";
-      }
-
-      // Add scroll-based rotation on top of that base
-      cubeGroup.current.rotation.y =
-        sideBaseRef.current + sideScrollProgress.current * Math.PI * 2;
-
-      // Similarly, leave x-rotation alone unless you want to force a specific x
-    }
-
-    requestAnimationFrame(animate);
   }
 
   function initScrollTriggers() {
@@ -172,6 +124,8 @@ export default function ScrollCubeSection(props: {
       requestAnimationFrame(initScrollTriggers);
       return;
     }
+
+    playInitialScaleAnimation();
 
     gsap.to(cube.current.rotation, {
       x: 6,
@@ -198,18 +152,13 @@ export default function ScrollCubeSection(props: {
         start: "-1250em top",
         end: "350em top",
         scrub: true,
-        markers: true,
       },
     });
   }
 
-  useEffect(() => {
-    initScrollTriggers();
-    //animate();
-  }, []);
-
   useGSAP(
     () => {
+      initScrollTriggers();
       if (!scrollSectionContainer.current) return;
 
       const pinnedHeight =
@@ -251,10 +200,7 @@ export default function ScrollCubeSection(props: {
       </div>
 
       <div ref={sideScroll} className="relative ">
-        <SideScrollVideo
-          rotateDir={rotateDir}
-          sideScrollProgress={sideScrollProgress}
-        />
+        <SideScrollVideo />
       </div>
 
       <div ref={downScroll2} className="relative mt-24">

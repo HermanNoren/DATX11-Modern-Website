@@ -9,10 +9,7 @@ import MaskText from "@/components/MaskText";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SideScrollVideo(props: {
-  rotateDir: RefObject<"down" | "side" | "none">;
-  sideScrollProgress: RefObject<number>;
-}) {
+export default function SideScrollVideo() {
   const section = useRef<HTMLElement>(null);
   const sideScrollDiv = useRef<HTMLDivElement>(null);
 
@@ -31,21 +28,6 @@ export default function SideScrollVideo(props: {
             start: "top top",
             end: `+=${scrollDistance}`,
             scrub: 1,
-            onUpdate: (self) => {
-              props.sideScrollProgress.current = self.progress;
-            },
-            onEnter: () => {
-              props.rotateDir.current = "side";
-            },
-            onLeaveBack: () => {
-              props.rotateDir.current = "down";
-            },
-            onEnterBack: () => {
-              props.rotateDir.current = "side";
-            },
-            onLeave: () => {
-              props.rotateDir.current = "down";
-            },
           },
         });
       }
