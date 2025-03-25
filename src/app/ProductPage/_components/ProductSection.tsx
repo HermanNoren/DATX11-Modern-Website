@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import MaskText from "@/components/MastText";
+import MaskText from "@/components/MaskText";
 import { useCart } from "../../cartpage/_components/cartlogic";
 
 interface ProductSectionProps {
@@ -23,15 +23,15 @@ const ProductSection: React.FC<ProductSectionProps> = ({
   const [isAdded, setIsAdded] = useState(false);
 
   const CurrentQuantity = () => {
-    const item = cartItems.find(item => item.id === id);
+    const item = cartItems.find((item) => item.id === id);
     return item ? item.quantity : 0;
   };
 
   const AddingToCart = () => {
     const currentQuantity = CurrentQuantity();
-    
+
     if (currentQuantity >= 10) {
-      return; 
+      return;
     }
 
     addItem({
@@ -47,7 +47,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({
   };
 
   const RemoveOneItem = () => {
-    const currentItem = cartItems.find(item => item.id === id);
+    const currentItem = cartItems.find((item) => item.id === id);
     if (currentItem && currentItem.quantity > 1) {
       updateQuantity(id, currentItem.quantity - 1);
     } else {
@@ -98,19 +98,23 @@ const ProductSection: React.FC<ProductSectionProps> = ({
             hover:after:bg-[#404040] 
             hover:before:bg-[#404040] 
             transition-all duration-300
-            ${isAdded ? 'scale-110 -translate-y-1 bg-opacity-75' : ''}
-            ${isMaxReached ? 'opacity-50 cursor-not-allowed' : ''}
+            ${isAdded ? "scale-110 -translate-y-1 bg-opacity-75" : ""}
+            ${isMaxReached ? "opacity-50 cursor-not-allowed" : ""}
           `}
         >
-          <MaskText 
-            stagger={0.005} 
-            phrase={isMaxReached ? "Max Quantity" : isAdded ? "Added!" : "Add to Cart"} 
+          <MaskText
+            stagger={0.005}
+            phrase={
+              isMaxReached ? "Max Quantity" : isAdded ? "Added!" : "Add to Cart"
+            }
           />
         </button>
         {currentQuantity > 0 && (
           <div className="flex items-center gap-2 my-2 text-[#404040]">
-            <p>{currentQuantity} {name} in cart</p>
-            <button 
+            <p>
+              {currentQuantity} {name} in cart
+            </p>
+            <button
               onClick={RemoveOneItem}
               className="ml-2 text-[#95614E] hover:text-[#404040] transition-colors"
             >
@@ -120,11 +124,7 @@ const ProductSection: React.FC<ProductSectionProps> = ({
         )}
       </div>
       <div className="flex-1 flex justify-center">
-        <img
-          src={`/${name}.gif`}
-          alt="Product"
-          className="w-4/5 h-auto"
-        />
+        <img src={`/${name}.gif`} alt="Product" className="w-4/5 h-auto" />
       </div>
       <div className="flex-1 text-[#404040] flex justify-end">
         <p className="text-right w-3/5">
