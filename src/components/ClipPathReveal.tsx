@@ -23,7 +23,7 @@ export default function ClipPathReveal(props: {
       { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
       {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        duration: props.duration ? props.duration : 1.5,
+        duration: props.duration ? props.duration : 2,
         delay: 0.2,
         ease: "power4.out",
         scrollTrigger: {

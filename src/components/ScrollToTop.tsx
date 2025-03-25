@@ -213,10 +213,6 @@ export default function ScrollToTop() {
     >
       <div className="absolute w-full aspect-square">
         <div
-          ref={bg}
-          className="absolute inset-0 bg-background opacity-0"
-        ></div>
-        <div
           ref={borderTop}
           className="absolute top-0 left-0 w-full h-[1px] bg-foreground [clip-path:polygon(0%_0%,_0%_0%,_0%_100%,_0%_100%)]"
         ></div>

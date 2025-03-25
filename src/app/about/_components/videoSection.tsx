@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import MaskText from "@/components/MastText";
+import MaskText from "@/components/MaskText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,8 +52,17 @@ export default function VideoSection() {
 
       {/* Video Container */}
       <div className="relative w-[895px] h-[465px] rounded-2xl overflow-hidden shadow-lg">
-        <video className="w-full h-full object-cover rounded-2xl" autoPlay loop muted playsInline>
-          <source src="/videos/20250303_1409_Minimalist_Industrial_Cubes_simple_compose_01jne20zrcf32bpk4cja2m2x7e.mp4" type="video/mp4" />
+        <video
+          className="w-full h-full object-cover rounded-2xl"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source
+            src="/videos/20250303_1409_Minimalist_Industrial_Cubes_simple_compose_01jne20zrcf32bpk4cja2m2x7e.mp4"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
       </div>

@@ -16,7 +16,6 @@ export default function Providers(props: { children: React.ReactNode }) {
       )}
     >
       {/*<LoadingScreen onFinish={() => setIsLoading(false)} />*/}
-      <Mouse />
       <SplashCursor />
       {props.children}
     </main>

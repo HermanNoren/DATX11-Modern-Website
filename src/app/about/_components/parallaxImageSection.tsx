@@ -1,4 +1,4 @@
-import MaskText from "@/components/MastText";
+import MaskText from "@/components/MaskText";
 import Image from "next/image";
 import Button from "@/components/Button";
 
@@ -9,7 +9,12 @@ export default function ParallaxImageSection() {
       <div className="relative container is-md h-[55em]">
         <div className="absolute right-36">
           <div className="relative w-96 aspect-[1/1.5]">
-            <Image src="/cube image for about.png" alt="Chair and Cube" layout="fill" objectFit="cover" />
+            <Image
+              src="/cube image for about.png"
+              alt="Chair and Cube"
+              layout="fill"
+              objectFit="cover"
+            />
           </div>
           <div className="rotate-z-90 rotate-x-180 rotate-y-180 origin-top-left absolute right-[-15.5em]">
             <span className="">{cubeLangs}</span>
@@ -17,7 +22,12 @@ export default function ParallaxImageSection() {
         </div>
         <div className="absolute left-4 top-72 z-0">
           <div className="relative w-96 aspect-[1/1.5]">
-            <Image src="/chair&cube-for-about.png" alt="Cube Image" layout="fill" objectFit="cover" />
+            <Image
+              src="/chair&cube-for-about.png"
+              alt="Cube Image"
+              layout="fill"
+              objectFit="cover"
+            />
           </div>
           <div className="rotate-z-90 rotate-x-180 rotate-y-180 origin-top-left absolute right-[-15.5em]">
             <span className="">{cubeLangs}</span>

@@ -14,6 +14,7 @@ export default function CubeSizeButton(props: {
   dark?: boolean;
   icon?: React.ReactNode;
   ref?: RefObject<HTMLDivElement | null>;
+  isAnimatingOut?: RefObject<boolean>;
 }) {
   const text = useRef<HTMLSpanElement>(null);
   const timelineOver = useRef<any>(null);
@@ -58,6 +59,7 @@ export default function CubeSizeButton(props: {
   });
 
   const onHover = () => {
+    if (props.isAnimatingOut?.current) return;
     timelineOver.current.tweenFromTo("enter", "exit");
     timelineUnder.current.tweenFromTo("enter", "exit");
   };
@@ -74,7 +76,7 @@ export default function CubeSizeButton(props: {
             const chars = word.split("");
 
             return (
-              <span key={i} className="relative flex mr-1">
+              <span key={i} className="relative flex">
                 {chars.map((char, i) => {
                   return (
                     <span id="buttonTextOver" className="relative" key={i}>
@@ -91,7 +93,7 @@ export default function CubeSizeButton(props: {
             const chars = word.split("");
 
             return (
-              <span key={i} className="relative flex mr-1">
+              <span key={i} className="relative flex">
                 {chars.map((char, i) => {
                   return (
                     <span id="buttonTextUnder" className="relative" key={i}>

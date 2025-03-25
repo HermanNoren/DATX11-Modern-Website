@@ -3,12 +3,29 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import Cube from "./Cube";
-import { availableCubeSizes } from "@/utils/cubeSizes";
+import { RefObject } from "react";
+import {
+  BufferGeometry,
+  Group,
+  Mesh,
+  NormalBufferAttributes,
+  Object3DEventMap,
+} from "three";
 
-export default function CubeScene(props: { cubeSize: availableCubeSizes }) {
+export default function CubeScene(props: {
+  cubeSize?: number;
+  cubeRef?: RefObject<Mesh<BufferGeometry<NormalBufferAttributes>>>;
+  groupRef?: RefObject<Group<Object3DEventMap>>;
+  isFloating?: RefObject<boolean>;
+}) {
   return (
     <Canvas>
-      <Cube size={props.cubeSize} />
+      <Cube
+        size={props.cubeSize ? props.cubeSize : 1}
+        ref={props.cubeRef}
+        groupRef={props.groupRef}
+        isFloating={props.isFloating}
+      />
       <Environment /*files="/skybox.exr"*/ preset="studio" />
     </Canvas>
   );

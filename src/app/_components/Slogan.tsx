@@ -36,10 +36,10 @@ export default function Slogan() {
               <ParallaxImage src={cubeGif2} alt="" factor={0.04} />
             </ClipPathReveal>
           </div>
-          <h3 className="leading-[1] col-span-10 uppercase">
+          <h3 className="text-[4.435em] leading-[1em] col-span-10 uppercase">
             <MaskText
               phrase="Because everything is better in cube form."
-              fontSize="text-[4.435em]"
+              fontSize=""
             />
           </h3>
         </div>

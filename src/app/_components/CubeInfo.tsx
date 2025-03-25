@@ -12,7 +12,7 @@ export default function CubeInfo() {
       <div className="relative container is-md h-[96.1em]">
         <div className="absolute right-36">
           <div className="relative w-96 aspect-[1/1.5]">
-            <ClipPathReveal duration={2.5}>
+            <ClipPathReveal duration={2}>
               <ParallaxImage src={stol} alt="" />
             </ClipPathReveal>
           </div>
@@ -23,7 +23,7 @@ export default function CubeInfo() {
         </div>
         <div className="absolute left-4 top-72 z-0">
           <div className="relative w-96 aspect-[1/1.5]">
-            <ClipPathReveal duration={2.5}>
+            <ClipPathReveal duration={2}>
               <ParallaxImage src={stol_fonster} alt="" />
             </ClipPathReveal>
           </div>
@@ -35,7 +35,7 @@ export default function CubeInfo() {
 
         <div className="absolute left-72 top-[60em] z-0">
           <div className="relative w-96 aspect-[1/1.5]">
-            <ClipPathReveal duration={2.5}>
+            <ClipPathReveal duration={2}>
               <ParallaxImage src={kaffe} alt="" />
             </ClipPathReveal>
           </div>

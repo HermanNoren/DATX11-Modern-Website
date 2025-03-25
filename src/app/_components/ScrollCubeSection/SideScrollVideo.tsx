@@ -3,14 +3,16 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
-import { useRef } from "react";
-
-import cubes from "@/imgs/gifs/three_cubes.gif";
+import { RefObject, useRef } from "react";
+import ClipPathReveal from "@/components/ClipPathReveal";
+import MaskText from "@/components/MaskText";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SideScrollVideo() {
+export default function SideScrollVideo(props: {
+  rotateDir: RefObject<"down" | "side" | "none">;
+  sideScrollProgress: RefObject<number>;
+}) {
   const section = useRef<HTMLElement>(null);
   const sideScrollDiv = useRef<HTMLDivElement>(null);
 
@@ -29,6 +31,21 @@ export default function SideScrollVideo() {
             start: "top top",
             end: `+=${scrollDistance}`,
             scrub: 1,
+            onUpdate: (self) => {
+              props.sideScrollProgress.current = self.progress;
+            },
+            onEnter: () => {
+              props.rotateDir.current = "side";
+            },
+            onLeaveBack: () => {
+              props.rotateDir.current = "down";
+            },
+            onEnterBack: () => {
+              props.rotateDir.current = "side";
+            },
+            onLeave: () => {
+              props.rotateDir.current = "down";
+            },
           },
         });
       }
@@ -50,25 +67,27 @@ export default function SideScrollVideo() {
         >
           <div className="grid grid-cols-2 w-full">
             <h3 className="relative text-[12em] leading-[1em] z-30 w-[4.5em] uppercase">
-              Three Dimension
+              <MaskText phrase="Three Dimension" />
             </h3>
             <h3 className="relative text-[12em] leading-[1em] z-30 uppercase text-end">
-              Three sizes
+              <MaskText phrase="Three sizes" />
             </h3>
           </div>
 
           <div className="absolute w-screen h-screen top-0 left-[27%] p-[var(--container-padding)]">
-            <div className="relative w-full h-full bg-neutral-600">
-              <video
-                className="relative w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src="/videos/three_sizes.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+            <div className="relative w-full h-full">
+              <ClipPathReveal>
+                <video
+                  className="relative w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src="/videos/three_sizes.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </ClipPathReveal>
             </div>
           </div>
         </div>
