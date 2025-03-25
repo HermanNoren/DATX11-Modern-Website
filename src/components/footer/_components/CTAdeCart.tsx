@@ -44,7 +44,7 @@ export default function CTAdeCart() {
       className="relative h-[75vh] flex flex-col justify-between items-center container"
     >
       <div className="w-full h-full grid place-items-center">
-        <Link
+        <TransitionLink
           className="flex relative w-fit cursor-pointer"
           href="/cartpage"
         >
@@ -59,7 +59,7 @@ export default function CTAdeCart() {
               </motion.span>
             );
           })}
-        </Link>
+        </TransitionLink>
       </div>
       <div className="relative container w-full py-8">
         <div className="absolute top-0 left-0 w-full h-[1px] bg-foreground opacity-50"></div>
