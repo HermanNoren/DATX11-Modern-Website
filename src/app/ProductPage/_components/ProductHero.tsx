@@ -9,7 +9,6 @@ const Header: React.FC = () => {
         top-0 
         left-[20%]
         text-[clamp(80px,10vw,160px)]
-        text-[#404040]
         leading-[0.9]
         font-thin
         m-0
@@ -24,7 +23,6 @@ const Header: React.FC = () => {
         top-[65px]
         left-[40%]
         w-[clamp(280px,35vw,560px)]
-        text-[#404040]
         font-light
         leading-relaxed
         m-0
@@ -55,7 +53,6 @@ const Header: React.FC = () => {
         top-[150px]
         left-[40%]
         text-[clamp(80px,10vw,160px)]
-        text-[#404040]
         leading-[0.9]
         font-thin
         m-0

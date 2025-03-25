@@ -27,7 +27,7 @@ const ProductPage: React.FC = () => {
       dimensions: "30x30x30 cm",
       value: "9999",
       description:
-        "The Imperial, the largest and boldest, a monolith of Astrolite, commanding attention whether placed in a corporate headquarters or private collection. Its sheer presence is a testament to those who operate on a grander scale. To own an Imperial is to stake a claim in the future itself.",
+        "The Imperial, the largest and boldest, a monolith of Astrolite, commanding attention whether placed in a headquarters or private collection. Its sheer presence is a testament to those who operate on a grander scale. To own an Imperial is to stake a claim in the future itself.",
     },
   ];
 
