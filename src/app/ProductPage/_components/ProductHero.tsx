@@ -20,8 +20,8 @@ const Header: React.FC = () => {
       {/* Paragraph */}
       <p className="
         absolute
-        top-[65px]
-        left-[40%]
+        top-[60px]
+        left-[41%]
         w-[clamp(280px,35vw,560px)]
         font-light
         leading-relaxed
