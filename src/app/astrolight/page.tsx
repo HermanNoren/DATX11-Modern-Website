@@ -5,8 +5,9 @@ import React from "react";
 import AstrolightHero from "./_components/AstrolightHero";
 import ExpAstrolight from "./_components/ExpAstrolight";
 import AstrolightInfo from "./_components/AstrolightInfo";
-import ImageSection from "./_components/ImageSection";
+/*import ImageSection from "./_components/ImageSection";*/
 import Footer from "@/components/footer/Footer";
+import AstroCubeRepel from "./_components/AstroCubeRepel";
 
 export default function AstrolightPage() {
   return (
@@ -15,8 +16,8 @@ export default function AstrolightPage() {
         <AstrolightHero />
         <ExpAstrolight />
         <AstrolightInfo />
-        <ImageSection />
-        <div className="w-full h-[30em] bg-background" />
+  
+        <AstroCubeRepel />
       </div>
       <Footer />
     </section>

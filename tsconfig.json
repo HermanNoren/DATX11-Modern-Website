@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "src/components/ParallaxImage.jsx",
     "src/components/VelocityScroll.jsx"
-  ],
+, "src/components/ParallaxVideo.jsx"  ],
   "exclude": ["node_modules"]
 }
