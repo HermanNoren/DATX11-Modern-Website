@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "src/components/ParallaxImage.jsx",
     "src/components/VelocityScroll.jsx",
-    "src/components/ParallaxVideo.jsx"
+    "src/components/ParallaxVideo.jsx",
     "src/app/_components/AstrolightInteractiveMaterial.tsx"
   ],
   "exclude": ["node_modules"]
