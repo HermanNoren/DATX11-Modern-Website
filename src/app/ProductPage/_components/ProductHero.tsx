@@ -1,10 +1,15 @@
+import ClipPathReveal from "@/components/ClipPathReveal";
+import MaskText from "@/components/MaskText";
 import React from "react";
+import ProductGif from "@/imgs/gifs/product-gif.gif";
+import ParallaxImage from "@/components/ParallaxImage";
 
 const Header: React.FC = () => {
   return (
     <div className="relative mx-auto my-8 overflow-hidden w-full max-w-[1600px] min-h-[600px] px-4">
       {/* "The" text */}
-      <h3 className="
+      <h3
+        className="
         absolute 
         top-0 
         left-[20%]
@@ -13,12 +18,14 @@ const Header: React.FC = () => {
         font-thin
         m-0
         p-0
-        whitespace-nowrap"
+        whitespace-nowrap
+        "
       >
-        The
+        <MaskText phrase="The" delay={0.7} />
       </h3>
       {/* Paragraph */}
-      <p className="
+      <p
+        className="
         absolute
         top-[60px]
         left-[41%]
@@ -27,28 +34,33 @@ const Header: React.FC = () => {
         leading-relaxed
         m-0
         p-0
-        text-[14px]"
+        text-[14px]
+        uppercase"
       >
-        Experience deCube—a revolutionary decorating cube crafted from
+        <MaskText
+          stagger={0.002}
+          delay={0.7}
+          phrase="Experience deCube—a revolutionary decorating cube crafted from
         Astrolite, an exclusive material from the depths of space. With its
         sleek, modern aesthetic and cutting-edge composition, deCube stands as a
-        testament to innovation and sophistication.
+        testament to innovation and sophistication."
+        />
       </p>
       {/* Product image */}
-      <div className="
+      <div
+        className="
         absolute
         top-[150px]
         left-[23%]
         w-[clamp(180px,15vw,235px)]"
       >
-        <img
-          src="/product-gif.gif"
-          alt="Product Demo"
-          className="w-full h-auto"
-        />
+        <ClipPathReveal delay={0.5}>
+          <ParallaxImage src={ProductGif} alt="Product Demo" factor={0.04} />
+        </ClipPathReveal>
       </div>
       {/* "Product" text */}
-      <h3 className="
+      <h3
+        className="
         absolute
         top-[150px]
         left-[40%]
@@ -57,9 +69,10 @@ const Header: React.FC = () => {
         font-thin
         m-0
         p-0
-        whitespace-nowrap"
+        whitespace-nowrap
+        "
       >
-        Product
+        <MaskText phrase="Product" delay={0.7} />
       </h3>
     </div>
   );
