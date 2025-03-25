@@ -7,6 +7,7 @@ import { JSX, RefObject, useRef } from "react";
 import CubeSizeButton from "./CubeSizeButton";
 import { Flip } from "gsap/Flip";
 import { cn } from "@/utils/cn";
+import TransitionLink from "@/components/header/TransitionLink";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Flip);
@@ -57,7 +58,8 @@ export default function CubeSizes(props: {
   const buttonSm = useRef<HTMLDivElement>(null);
   const buttonMd = useRef<HTMLDivElement>(null);
   const buttonLg = useRef<HTMLDivElement>(null);
-  const buttonRefs = [buttonSm, buttonMd, buttonLg];
+  const buttonHref = useRef<HTMLDivElement>(null);
+  const buttonRefs = [buttonSm, buttonMd, buttonLg, buttonHref];
   const buttonSmIndicator = useRef<HTMLDivElement>(null);
   const buttonMdIndicator = useRef<HTMLDivElement>(null);
   const buttonLgIndicator = useRef<HTMLDivElement>(null);
@@ -409,7 +411,17 @@ export default function CubeSizes(props: {
           </div>
         </div>
         <div className="relative flex flex-col justify-center uppercase">
-          <div className="h-[30em]">{descriptions}</div>
+          <div className="h-[30em] flex flex-col justify-between">
+            <span>{descriptions}</span>
+            <TransitionLink href="/ProductPage" className="w-fit">
+              <CubeSizeButton
+                text={"Buy deCube"}
+                className="text-4xl uppercase"
+                ref={buttonRefs[3]}
+                isAnimatingOut={isAnimatingButtons}
+              ></CubeSizeButton>
+            </TransitionLink>
+          </div>
         </div>
       </div>
     </section>

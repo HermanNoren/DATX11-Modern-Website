@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
-import Mouse from "@/components/Mouse";
 import { cn } from "@/utils/cn";
 import SplashCursor from "@/components/SplashCursor";
 
 export default function Providers(props: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <main
       className={cn(
@@ -15,7 +14,7 @@ export default function Providers(props: { children: React.ReactNode }) {
         isLoading ? "w-screen h-screen overflow-hidden" : ""
       )}
     >
-      {/*<LoadingScreen onFinish={() => setIsLoading(false)} />*/}
+      <LoadingScreen onFinish={() => setIsLoading(false)} />
       <SplashCursor />
       {props.children}
     </main>

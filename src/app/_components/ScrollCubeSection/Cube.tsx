@@ -12,8 +12,8 @@ import {
 
 export default function Cube(props: {
   size: number;
-  ref?: RefObject<Mesh<BufferGeometry<NormalBufferAttributes>>>;
-  groupRef?: RefObject<Group<Object3DEventMap>>;
+  ref?: RefObject<Mesh<BufferGeometry<NormalBufferAttributes>> | null>;
+  groupRef?: RefObject<Group<Object3DEventMap> | null>;
   isFloating?: RefObject<boolean>;
 }) {
   const mesh = useRef<Mesh<BufferGeometry<NormalBufferAttributes>>>(null);

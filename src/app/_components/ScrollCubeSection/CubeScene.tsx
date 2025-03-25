@@ -14,8 +14,8 @@ import {
 
 export default function CubeScene(props: {
   cubeSize?: number;
-  cubeRef?: RefObject<Mesh<BufferGeometry<NormalBufferAttributes>>>;
-  groupRef?: RefObject<Group<Object3DEventMap>>;
+  cubeRef?: RefObject<Mesh<BufferGeometry<NormalBufferAttributes>> | null>;
+  groupRef?: RefObject<Group<Object3DEventMap> | null>;
   isFloating?: RefObject<boolean>;
 }) {
   return (

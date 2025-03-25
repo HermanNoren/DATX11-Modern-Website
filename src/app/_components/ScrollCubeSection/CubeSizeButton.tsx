@@ -76,7 +76,13 @@ export default function CubeSizeButton(props: {
             const chars = word.split("");
 
             return (
-              <span key={i} className="relative flex">
+              <span
+                key={i}
+                className={cn(
+                  "relative inline-flex",
+                  words.length === i + 1 ? "" : "mr-1"
+                )}
+              >
                 {chars.map((char, i) => {
                   return (
                     <span id="buttonTextOver" className="relative" key={i}>
@@ -93,7 +99,13 @@ export default function CubeSizeButton(props: {
             const chars = word.split("");
 
             return (
-              <span key={i} className="relative flex">
+              <span
+                key={i}
+                className={cn(
+                  "relative inline-flex",
+                  words.length === i + 1 ? "" : "mr-1"
+                )}
+              >
                 {chars.map((char, i) => {
                   return (
                     <span id="buttonTextUnder" className="relative" key={i}>
