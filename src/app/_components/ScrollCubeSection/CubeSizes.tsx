@@ -3,16 +3,21 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { JSX, RefObject, useEffect, useRef, useState } from "react";
-import Button from "@/components/Button";
+import { JSX, RefObject, useRef } from "react";
 import CubeSizeButton from "./CubeSizeButton";
+import { Flip } from "gsap/Flip";
+import { cn } from "@/utils/cn";
+import TransitionLink from "@/components/header/TransitionLink";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Flip);
 
 export default function CubeSizes(props: {
   onClickSm: () => void;
   onClickMd: () => void;
   onClickLg: () => void;
+  onScrollOut: () => void;
+  onScrollIn: () => void;
 }) {
   const trigger = useRef<HTMLElement>(null);
   const borderTop = useRef<HTMLDivElement>(null);
@@ -22,7 +27,7 @@ export default function CubeSizes(props: {
 
   const borderAnimateDuration = 1;
   const borderAnimateEase = "power4.inOut";
-  const borderToggleAction = "play none none none";
+  const borderToggleAction = "play none none reverse";
 
   const sizes = [
     {
@@ -53,7 +58,17 @@ export default function CubeSizes(props: {
   const buttonSm = useRef<HTMLDivElement>(null);
   const buttonMd = useRef<HTMLDivElement>(null);
   const buttonLg = useRef<HTMLDivElement>(null);
-  const buttonRefs = [buttonSm, buttonMd, buttonLg];
+  const buttonHref = useRef<HTMLDivElement>(null);
+  const buttonRefs = [buttonSm, buttonMd, buttonLg, buttonHref];
+  const buttonSmIndicator = useRef<HTMLDivElement>(null);
+  const buttonMdIndicator = useRef<HTMLDivElement>(null);
+  const buttonLgIndicator = useRef<HTMLDivElement>(null);
+  const buttonIndicatorRefs = [
+    buttonSmIndicator,
+    buttonMdIndicator,
+    buttonLgIndicator,
+  ];
+  const isAnimatingButtons = useRef<boolean>(false);
 
   const currentID = useRef<number>(1);
   const newID = useRef<number>(1);
@@ -172,7 +187,8 @@ export default function CubeSizes(props: {
     );
   }
 
-  function animateTextScrollIn(ref: RefObject<HTMLSpanElement | null>) {
+  function animateTextScrollIn() {
+    const ref = descRefs[currentID.current];
     if (!ref.current) return;
 
     const text = ref.current.querySelectorAll("#sizeDescText");
@@ -185,21 +201,51 @@ export default function CubeSizes(props: {
         duration: 0.5,
         stagger: 0.002,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: trigger.current,
-          start: "top top",
-          toggleActions: "play none none none",
-        },
+      }
+    );
+  }
+
+  function animateTextScrollOut() {
+    const ref = descRefs[currentID.current];
+    if (!ref.current) return;
+
+    const text = ref.current.querySelectorAll("#sizeDescText");
+
+    gsap.fromTo(
+      text,
+      { y: "0" },
+      {
+        y: "100%",
+        duration: 0.5,
+        stagger: -0.002,
+        ease: "power2.out",
       }
     );
   }
 
   function animateButtonsScrollIn(ref: RefObject<HTMLDivElement | null>) {
     if (!ref.current) return;
-    const text = ref.current.querySelectorAll("#buttonTextOver");
 
     gsap.fromTo(
-      text,
+      ref.current,
+      { display: "none" },
+      {
+        display: "block",
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: trigger.current,
+          start: "top top",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    const textOver = ref.current.querySelectorAll("#buttonTextOver");
+    const textUnder = ref.current.querySelectorAll("#buttonTextUnder");
+
+    gsap.fromTo(
+      textOver,
       { y: "100%" },
       {
         y: "0",
@@ -209,7 +255,22 @@ export default function CubeSizes(props: {
         scrollTrigger: {
           trigger: trigger.current,
           start: "top top",
-          toggleActions: "play none none none",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      textUnder,
+      { y: "100%" },
+      {
+        y: "0",
+        duration: 0.5,
+        stagger: 0.02,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: trigger.current,
+          start: "top top",
+          toggleActions: "play none none reverse",
         },
       }
     );
@@ -221,10 +282,37 @@ export default function CubeSizes(props: {
       animateBorderRight();
       animateBorderBottom();
       animateBorderLeft();
-      animateTextScrollIn(descRefs[currentID.current]);
       for (const ref of buttonRefs) {
         animateButtonsScrollIn(ref);
       }
+
+      ScrollTrigger.create({
+        trigger: trigger.current,
+        start: "top top",
+        onEnter: () => {
+          isAnimatingButtons.current = true;
+          setTimeout(() => {
+            isAnimatingButtons.current = false;
+          }, 500);
+          props.onScrollIn();
+          const indicatorRef = buttonIndicatorRefs[currentID.current];
+          gsap.to(indicatorRef.current, {
+            scale: 1,
+            duration: 0.5,
+          });
+          animateTextScrollIn();
+        },
+        onLeaveBack: () => {
+          isAnimatingButtons.current = true;
+          setTimeout(() => {
+            isAnimatingButtons.current = false;
+          }, 800);
+          props.onScrollOut();
+          const indicatorRef = buttonIndicatorRefs[currentID.current];
+          gsap.to(indicatorRef.current, { scale: 0, duration: 0.5 });
+          animateTextScrollOut();
+        },
+      });
     },
     {
       scope: trigger,
@@ -243,21 +331,63 @@ export default function CubeSizes(props: {
     currentID.current = i;
   }
 
+  function onMouseEnter(i: number) {
+    for (let j = 0; j < buttonIndicatorRefs.length; j++) {
+      const indicatorRef = buttonIndicatorRefs[j];
+      if (i === j) {
+        gsap.to(indicatorRef.current, { scale: 1, duration: 0.3 });
+      } else {
+        gsap.to(indicatorRef.current, { scale: 0, duration: 0.3 });
+      }
+    }
+  }
+
+  function onMouseLeave() {
+    for (let j = 0; j < buttonIndicatorRefs.length; j++) {
+      const indicatorRef = buttonIndicatorRefs[j];
+      if (j === currentID.current) {
+        gsap.to(indicatorRef.current, { scale: 1, duration: 0.3 });
+      } else {
+        gsap.to(indicatorRef.current, { scale: 0, duration: 0.3 });
+      }
+    }
+  }
+
   return (
-    <section ref={trigger} className="relative h-[200lvh] z-20">
+    <section ref={trigger} className="relative h-[300lvh] z-20">
       <div className="sticky inset-0 container w-full h-lvh grid grid-cols-[1fr_30em_1fr] gap-4">
-        <div className="relative pt-[7em] flex flex-col gap-1">
-          {sizes.map((size, i) => {
-            return (
-              <CubeSizeButton
-                key={i}
-                onClick={() => onClick(size.id)}
-                text={size.title}
-                className="text-6xl uppercase"
-                ref={buttonRefs[i]}
-              ></CubeSizeButton>
-            );
-          })}
+        <div className="relative flex flex-col justify-center">
+          <div className="h-[30em] flex flex-col gap-1">
+            {sizes.map((size, i) => {
+              const isActive = i === currentID.current;
+              return (
+                <div key={i} className="w-full relative">
+                  <div
+                    onMouseEnter={() => onMouseEnter(i)}
+                    onMouseLeave={onMouseLeave}
+                    className="w-fit"
+                  >
+                    <CubeSizeButton
+                      onClick={() => onClick(size.id)}
+                      text={size.title}
+                      className="text-6xl uppercase"
+                      ref={buttonRefs[i]}
+                      isAnimatingOut={isAnimatingButtons}
+                    ></CubeSizeButton>
+                  </div>
+
+                  <div
+                    ref={buttonIndicatorRefs[i]}
+                    className={cn(
+                      "absolute top-[50%] translate-y-[-50%] left-28 text-5xl will-change-transform scale-0"
+                    )}
+                  >
+                    •
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="grid place-items-center">
@@ -280,8 +410,18 @@ export default function CubeSizes(props: {
             ></div>
           </div>
         </div>
-        <div className="relative flex flex-col justify-center font-normal uppercase">
-          <div className="h-[30em]">{descriptions}</div>
+        <div className="relative flex flex-col justify-center uppercase">
+          <div className="h-[30em] flex flex-col justify-between">
+            <span>{descriptions}</span>
+            <TransitionLink href="/ProductPage" className="w-fit">
+              <CubeSizeButton
+                text={"Buy deCube"}
+                className="text-4xl uppercase"
+                ref={buttonRefs[3]}
+                isAnimatingOut={isAnimatingButtons}
+              ></CubeSizeButton>
+            </TransitionLink>
+          </div>
         </div>
       </div>
     </section>

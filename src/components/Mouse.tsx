@@ -16,7 +16,6 @@ export default function Mouse() {
 
   const manageMouseMove = (e: MouseEvent) => {
     const { clientX, clientY } = e;
-    console.log("Hej");
 
     mouse.x.set(`${clientX}`);
     mouse.y.set(`${clientY}`);

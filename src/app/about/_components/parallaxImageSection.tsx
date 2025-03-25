@@ -1,4 +1,5 @@
-import MaskText from "@/components/MastText";
+import MaskText from "@/components/MaskText";
+import Image from "next/image";
 import Button from "@/components/Button";
 import ParallaxImage from "@/components/ParallaxImage";
 import cubeImg from "@/imgs/png/cube image for about.png";

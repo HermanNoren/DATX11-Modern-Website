@@ -1,24 +1,51 @@
 "use client";
 
-import { availableCubeSizes } from "@/utils/cubeSizes";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useRef } from "react";
-import { BufferGeometry, Mesh, NormalBufferAttributes } from "three";
+import { RefObject, useRef } from "react";
+import {
+  BufferGeometry,
+  Group,
+  Mesh,
+  NormalBufferAttributes,
+  Object3DEventMap,
+} from "three";
 
-export default function Cube(props: { size: availableCubeSizes }) {
+export default function Cube(props: {
+  size: number;
+  ref?: RefObject<Mesh<BufferGeometry<NormalBufferAttributes>> | null>;
+  groupRef?: RefObject<Group<Object3DEventMap> | null>;
+  isFloating?: RefObject<boolean>;
+}) {
   const mesh = useRef<Mesh<BufferGeometry<NormalBufferAttributes>>>(null);
   const { viewport } = useThree();
 
-  useFrame((state, delta) => {
-    if (!mesh.current) return;
+  const floatSpeed = 1.2;
+  const floatAmplitude = 0.2;
+  let d = 0;
 
-    mesh.current.rotation.y += 0.2 * delta;
-    mesh.current.rotation.z += 0.2 * delta;
+  useFrame((state, delta) => {
+    const ref = props.ref ? props.ref : mesh;
+    if (!ref.current) return;
+
+    ref.current.rotation.y += 0.2 * delta;
+    ref.current.rotation.z += 0.2 * delta;
+
+    if (!props.isFloating) return;
+
+    const floatOffset = Math.sin(d * floatSpeed) * floatAmplitude;
+
+    if (props.isFloating.current) {
+      d += 1 * delta;
+      d %= 360;
+      ref.current.position.y = floatOffset;
+    } else {
+      d = 0;
+    }
   });
 
   return (
-    <group scale={viewport.width / 7}>
-      <mesh ref={mesh} scale={[props.size, props.size, props.size]}>
+    <group ref={props.groupRef} scale={viewport.width / 7}>
+      <mesh ref={props.ref ? props.ref : mesh} scale={[1, 1, 1]}>
         <boxGeometry />
         <meshPhysicalMaterial
           metalness={1}

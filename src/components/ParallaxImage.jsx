@@ -84,7 +84,7 @@ export default function ParallaxImage({
           willChange: "transform",
           transform: "translateY(0) scale(1.25)",
         }}
-        className="absolute w-full h-full object-cover"
+        className="relative w-full h-full object-cover"
       />
     </div>
   );
