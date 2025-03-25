@@ -1,12 +1,14 @@
 import "./lastpage.css";
 import Link from "next/link";
+import { Boxes } from "lucide-react";
 
 function LastPage() {
   return (
-    <div className="last-page">
-      <div className="last-header">deCube</div>
+    <div className="last-page mt-25">
       <div className="thanks-container">
-        <img src="/cube.png" alt="Cube" className="cube-image" />
+        <div className="decube-logo-end">
+          <Boxes strokeWidth={1} className="logo-icon" />
+        </div>
         <p className="thank-you">
           Thank you for
           <br />
@@ -15,7 +17,7 @@ function LastPage() {
         <p className="press-button">
           Press the button below to get to the start of the site
         </p>
-        <Link href="/homepage" className="decube-button">
+        <Link href="/home" className="decube-button">
           <button className="deCube-button">deCube.com</button>
         </Link>
       </div>
