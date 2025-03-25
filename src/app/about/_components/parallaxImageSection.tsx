@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import ParallaxImage from "@/components/ParallaxImage";
 import cubeImg from "@/imgs/png/cube image for about.png";
 import cubeAndChair from "@/imgs/png/chair&cube-for-about.png";
+import ClipPathReveal from "@/components/ClipPathReveal";
 
 export default function ParallaxImageSection() {
   const cubeLangs = "CUBE/KUB/CUBO/KUUTIO/立方体";
@@ -11,7 +12,9 @@ export default function ParallaxImageSection() {
       <div className="relative container is-md h-[55em]">
         <div className="absolute right-36">
           <div className="relative w-96 aspect-[1/1.5]">
-            <ParallaxImage src={cubeImg} alt="Chair and Cube" />
+            <ClipPathReveal>
+              <ParallaxImage src={cubeImg} alt="Chair and Cube" />
+            </ClipPathReveal>
           </div>
           <div className="rotate-z-90 rotate-x-180 rotate-y-180 origin-top-left absolute right-[-15.5em]">
             <span className="">{cubeLangs}</span>
@@ -19,7 +22,9 @@ export default function ParallaxImageSection() {
         </div>
         <div className="absolute left-4 top-72 z-0">
           <div className="relative w-96 aspect-[1/1.5]">
-            <ParallaxImage src={cubeAndChair} alt="Cube Image" />
+            <ClipPathReveal>
+              <ParallaxImage src={cubeAndChair} alt="Cube Image" />
+            </ClipPathReveal>
           </div>
           <div className="rotate-z-90 rotate-x-180 rotate-y-180 origin-top-left absolute right-[-15.5em]">
             <span className="">{cubeLangs}</span>
