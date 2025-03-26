@@ -12,7 +12,7 @@ const Header: React.FC = () => {
         className="
         absolute 
         top-0 
-        left-[20%]
+        left-[21%]
         text-[clamp(80px,10vw,160px)]
         leading-[0.9]
         font-thin
@@ -27,9 +27,9 @@ const Header: React.FC = () => {
       <p
         className="
         absolute
-        top-[60px]
+        top-[40px]
         left-[41%]
-        w-[clamp(280px,35vw,560px)]
+        w-[clamp(280px,40vw,560px)]
         font-light
         leading-relaxed
         m-0
