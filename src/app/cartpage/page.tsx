@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useCart } from "./_components/cartlogic";
 import "./cartpage.css";
 import ProductCard from "./_components/ProductCard";
+import TransitionLink from "@/components/header/TransitionLink";
 
 interface Product {
   id: string;
@@ -97,9 +98,9 @@ const CheckoutPage: React.FC = () => {
         </div>
         <div className="margin"></div>
         <div className="checkout-footer">
-          <Link href="/lastpage">
+          <TransitionLink href="/lastpage">
             <button className="checkout-button">CHECKOUT</button>
-          </Link>
+          </TransitionLink>
           <p className="bottom-text">
             DISCLAIMER: this isn't a real checkout. pressing the
             <br />

@@ -1,6 +1,7 @@
 import "./lastpage.css";
 import Link from "next/link";
 import { Boxes } from "lucide-react";
+import TransitionLink from "@/components/header/TransitionLink";
 
 function LastPage() {
   return (
@@ -17,9 +18,9 @@ function LastPage() {
         <p className="press-button">
           Press the button below to get to the start of the site
         </p>
-        <Link href="/home" className="decube-button">
+        <TransitionLink href="/" className="decube-button">
           <button className="deCube-button">deCube.com</button>
-        </Link>
+        </TransitionLink>
       </div>
 
       <div className="margin">.</div>
