@@ -23,7 +23,6 @@
     "motion": "^12.4.7",
     "next": "15.1.6",
     "next-view-transitions": "^0.3.4",
-    "p5": "^1.11.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "split-type": "^0.3.4",
