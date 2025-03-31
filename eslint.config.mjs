@@ -13,17 +13,16 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
-      "react-hooks/rules-of-hooks": "off",
       "@typescript-eslint/no-this-alias": "off",
-      "@typescript-eslint/ban-ts-comment": "warn",
-      "@typescript-eslint/no-empty-object-type": "warn",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-unused-expressions": "off",
       "prefer-const": "off",
+      "react-hooks/rules-of-hooks": "off",
       "react/no-unescaped-entities": "off",
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
       "@next/next/no-assign-module-variable": "off",
-      "unicorn/no-unsafe-regex": "off",
     },
   },
 ];
