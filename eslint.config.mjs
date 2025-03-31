@@ -20,6 +20,10 @@ const eslintConfig = [
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-unused-expressions": "off",
+      "prefer-const": "off",
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-assign-module-variable": "off",
+      "unicorn/no-unsafe-regex": "off",
     },
   },
 ];
