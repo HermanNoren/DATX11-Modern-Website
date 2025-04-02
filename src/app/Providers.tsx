@@ -24,7 +24,8 @@ export default function Providers(props: { children: React.ReactNode }) {
         }}
       />
       <SplashCursor />
-      {renderChildren ? props.children : null}
+      {props.children}
+      {/*renderChildren ? props.children : null*/}
     </main>
   );
 }
