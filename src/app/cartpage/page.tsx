@@ -3,9 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import { useCart } from "./_components/cartlogic";
-import "./cartpage.css";
 import ProductCard from "./_components/ProductCard";
-import TransitionLink from "@/components/header/TransitionLink";
+import CartHeader from "./_components/CartHeader";
+import CartAddButtons from "./_components/CartAddButtons";
+import CartProductGrid from "./_components/CartProductGrid";
+import CartCheckout from "./_components/CartCheckout";
 
 interface Product {
   id: string;
@@ -43,10 +45,6 @@ const PRODUCTS: Product[] = [
   },
 ];
 
-const formatPrice = (price: number) => {
-  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-};
-
 const CheckoutPage: React.FC = () => {
   const {
     cartItems,
@@ -61,54 +59,19 @@ const CheckoutPage: React.FC = () => {
   );
 
   return (
-    <div className="checkout-page border">
-      <div className="shopping-cart">
-        <div className="checkout-header">
-          <h2 className="checkout-bag">
-            Bag total: {formatPrice(totalPrice)} SEK
-          </h2>
-        </div>
-        <p className="checkout-text">Worldwide shipping and no returns</p>
-
-        <div className="add-buttons">
-          {PRODUCTS.map((product) => (
-            <button
-              key={product.id}
-              onClick={() => addToCart(product)}
-              disabled={cartItems.some((item) => item.id === product.id)}
-            >
-              ADD {product.name}
-            </button>
-          ))}
-        </div>
-        <div className="checkout-line"></div>
-        <div className="checkout-product-grid">
-          {cartItems.map((item) => (
-            <ProductCard
-              key={item.id}
-              name={item.name}
-              price={item.price * item.quantity}
-              dimensions={item.dimensions}
-              image={item.image}
-              quantity={item.quantity}
-              onRemove={() => removeFromCart(item.id)}
-              onQuantityChange={(quantity) => updateQuantity(item.id, quantity)}
-            />
-          ))}
-        </div>
-        <div className="margin"></div>
-        <div className="checkout-footer">
-          <TransitionLink href="/lastpage">
-            <button className="checkout-button">CHECKOUT</button>
-          </TransitionLink>
-          <p className="bottom-text">
-            DISCLAIMER: this isn't a real checkout. pressing the
-            <br />
-            button brings you to the end of the site
-          </p>
-        </div>
+    <div className="bg-[#FFFDF9] min-h-screen">
+      <div className="flex flex-col items-center max-w-[1250px] mx-auto py-8">
+        <CartHeader totalPrice={totalPrice} />
+        <CartAddButtons
+          products={PRODUCTS}
+          cartItems={cartItems}
+          addToCart={addToCart}/>
+        <CartProductGrid
+          cartItems={cartItems}
+          onRemove={removeFromCart}
+          onQuantityChange={updateQuantity}/>
+        <CartCheckout />
       </div>
-      <div className="margin">.</div>
     </div>
   );
 };
